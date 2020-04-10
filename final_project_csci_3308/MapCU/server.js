@@ -27,14 +27,17 @@ var db = pgp(dbConfig);
 app.use(express.static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
 app.use(cors())
 
-app.get('/home', function (req, res) {
-  res.render("pages/home", {
-  })
+app.get('/', function (req, res) {
+  res.send(`Oops! Are you sure you didn't mean to access the port
+  on which Serve is operating on? This is the port for the NodeJS
+  server, which is only for data API calls.`)
 })
+
 
 app.get('/rooms_data', function (req, res) {
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
+    console.log(data)
     res.json(data)
   })
 });
@@ -51,5 +54,7 @@ app.get('/rooms_data', function (req, res) {
 //   })
 // });
 
-app.listen(3000)
-console.log("testing server start")
+var port = 3000
+app.listen(port)
+console.log("Server running on port: " + port)
+

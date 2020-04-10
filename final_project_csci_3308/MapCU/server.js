@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 })
 
 
-app.get('/rooms_data', function (req, res) {
+app.get('/rooms_data', cors(), function (req, res) {
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
     console.log(data)

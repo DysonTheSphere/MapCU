@@ -51,6 +51,12 @@
 			</div>
 
 			<div class="col-sm" id="data_display">
+				<h2>
+					Yay! Fetched Data
+
+				</h2>
+
+
 				<!-- appending content here with js -->
 			</div>
 
@@ -72,17 +78,28 @@
 			</label>
 
 
-			<script>
-				console.log("entering script")
-				var dataURL = "127.0.0.1:3000/rooms_data"
-				$.ajax({ url: dataURL, dataType: "json" }).then(function (data) {
-					console.log(data)
-				})
-					.fail(function (fail) {
-						console.log("Fail", fail)
-					})
-			</script>
+
 </body>
+
+<script>
+	console.log("entering script")
+	var dataURL = "http://127.0.0.1:3000/rooms_data/"
+	$.ajax({ url: dataURL, dataType: "json", type: 'GET' }).then(function (data) {
+		console.log(data)
+		for (var i = 0; i < data.length; i++) {
+			document.getElementById("data_display").innerHTML +=
+				`Room Number:  ${data[i].roomnumber}  ` +
+				`Room Subject: ${data[i].roomsubect}  ` + "\n	"
+
+		}
+		// alert(data.length)
+	})
+		.fail(function (fail) {
+			console.log("Fail", fail)
+		})
+</script>
+
+
 
 
 </html>

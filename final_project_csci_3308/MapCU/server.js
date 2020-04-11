@@ -34,6 +34,7 @@ app.get('/', function (req, res) {
 })
 
 
+
 app.get('/rooms_data', cors(), function (req, res) {
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
@@ -43,10 +44,11 @@ app.get('/rooms_data', cors(), function (req, res) {
 });
 
 app.post('/user_form', function (req, res) {
-  console.log("Entering post request")
+  console.log("Entering post user_form request")
   console.log(req.body)
   res.json({ 1: 1 })
 })
+
 
 
 

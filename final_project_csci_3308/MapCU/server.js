@@ -44,7 +44,7 @@ app.get('/rooms_data', cors(), function (req, res) {
 
 app.post('/user_form', function (req, res) {
   console.log("Entering post request")
-
+  console.log(req.body)
   res.json({ 1: 1 })
 })
 

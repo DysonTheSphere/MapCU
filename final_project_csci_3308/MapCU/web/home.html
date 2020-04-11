@@ -10,14 +10,14 @@
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
 		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
 		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		crossorigin="anonymous"></script> -->
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
 		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script> -->
 </head>
 
 <script>
@@ -29,13 +29,16 @@
 			username: "gtzinov",
 			password: "MapCU2020"
 		}
+		fetch({ url: "http://localhost:3000/user_form", method: 'POST', body: formPostObject }).then(data => { console.log(data) }).catch(err => console.log(err))
 
-		$.ajax({ url: "http://127.0.0.1:3000/user_form", type: 'POST', data: formPostObject }).then(function () {
-			console.log("Success! Data sent: " + data)
-		})
-			.fail(function (fail) {
-				console.log("Fail", fail)
-			})
+		// fetch({ url: "http://127.0.0.1:3000/user_form", method: 'POST' }).then(data => { console.log(data) }).catch(err => console.log(err))
+
+		// $.ajax({ url: "http://127.0.0.1:3000/user_form", type: 'POST', data: formPostObject }).then(function (data) {
+		// 	console.log("Success! Data sent: " + data)
+		// })
+		// 	.fail(function (fail) {
+		// 		console.log("Fail", fail)
+		// 	})
 
 	}
 
@@ -104,12 +107,12 @@
 
 
 </body>
-
+<!-- 
 <script>
 	console.log("entering script")
 	var dataURL = "http://127.0.0.1:3000/rooms_data/"
 	$.ajax({ url: dataURL, dataType: "json", type: 'GET' }).then(function (data) {
-		console.log(data)
+		// console.log(data)
 		for (var i = 0; i < data.length; i++) {
 			document.getElementById("data_display").innerHTML +=
 				`Room Number:  ${data[i].roomnumber}  ` +
@@ -121,7 +124,7 @@
 		.fail(function (fail) {
 			console.log("Fail", fail)
 		})
-</script>
+</script> -->
 
 
 

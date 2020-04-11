@@ -20,6 +20,28 @@
 		crossorigin="anonymous"></script>
 </head>
 
+<script>
+
+	function onClickFunction() {
+		console.log("Entering onClickFunction")
+
+		var formPostObject = {
+			username: "gtzinov",
+			password: "MapCU2020"
+		}
+
+		$.ajax({ url: "http://127.0.0.1:3000/user_form", type: 'POST', data: formPostObject }).then(function () {
+			console.log("Success! Data sent: " + data)
+		})
+			.fail(function (fail) {
+				console.log("Fail", fail)
+			})
+
+	}
+
+
+</script>
+
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="home.html"></a>
@@ -65,17 +87,19 @@
 	<form>
 		<div class="form-group">
 			<label for="exampleInputEmail1">Enter Destination Room Number</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-				placeholder="Enter interest">
+			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter interest">
 			<label for="exampleInputEmail1">Enter Current Location</label>
 			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
 				placeholder="Enter interest">
 			<br>
 			<div class="form-group">
-				<button id="search_id" class="btn btn-primary btn-block login-btn" disabled
-					onClick="onClickFunction()">Search</button>
+				<button id="search_id" class="btn btn-primary btn-block login-btn"
+					onclick=onClickFunction()>Search</button>
 			</div>
 			</label>
+	</form>
+
+
 
 
 

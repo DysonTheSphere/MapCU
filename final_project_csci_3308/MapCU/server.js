@@ -37,10 +37,16 @@ app.get('/', function (req, res) {
 app.get('/rooms_data', cors(), function (req, res) {
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
-    console.log(data)
+    // console.log(data)
     res.json(data)
   })
 });
+
+app.post('/user_form', function (req, res) {
+  console.log("Entering post request")
+
+  res.json({ 1: 1 })
+})
 
 
 

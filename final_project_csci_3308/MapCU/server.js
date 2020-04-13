@@ -24,43 +24,45 @@ const dbConfig = {
 var db = pgp(dbConfig);
 
 // set the view engine to ejs
+app.set('view engine', 'ejs');
+
 app.use(express.static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
 app.use(cors())
 
-app.get('/', function (req, res) {
-  res.send(`Oops! Are you sure you didn't mean to access the port
-  on which Serve is operating on? This is the port for the NodeJS
-  server, which is only for data API calls.`)
-})
+// app.get('/', function (req, res) {
+//   res.send(`Oops! Are you sure you didn't mean to access the port
+//   on which Serve is operating on? This is the port for the NodeJS
+//   server, which is only for data API calls.`)
+// })
 
 
 
-app.get('/rooms_data', cors(), function (req, res) {
-  var query = 'select * from rooms;'
-  db.any(query).then(function (data) {
-    // console.log(data)
-    res.json(data)
-  })
-});
-
-app.post('/user_form', function (req, res) {
-  console.log("Entering post user_form request")
-  console.log(req.body)
-  res.json({ 1: 1 })
-})
-
-
-
-
-// app.get('/home', function (req, res) {
+// app.get('/rooms_data', cors(), function (req, res) {
 //   var query = 'select * from rooms;'
 //   db.any(query).then(function (data) {
 //     // console.log(data)
-//     res.render("pages/home", {
-//       myData: data
-//     })
+//     res.json(data)
 //   })
 // });
+
+// app.post('/user_form', function (req, res) {
+//   console.log("Entering post user_form request")
+//   console.log(req.body)
+//   res.json({ 1: 1 })
+// })
+
+
+
+
+app.get('/home', function (req, res) {
+  var query = 'select * from rooms;'
+  db.any(query).then(function (data) {
+    // console.log(data)
+    res.render("pages/home", {
+      myData: data
+    })
+  })
+});
 
 var port = 3000
 app.listen(port)

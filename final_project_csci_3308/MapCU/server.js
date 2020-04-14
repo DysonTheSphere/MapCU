@@ -64,6 +64,11 @@ app.get('/home', function (req, res) {
   })
 });
 
+app.get('/map', function (req, res) {
+  res.render("pages/map", {
+  })
+});
+
 app.post('/instructions', function (req, res) {
   var current_room = req.body.current_room
   var target_room = req.body.target_room
@@ -79,7 +84,9 @@ app.post('/instructions', function (req, res) {
     if (data.length > 0) {
       console.log(data)
       res.render("pages/instructions_page", {
-        instructionData: data
+        instructionData: data,
+        currentRoom: current_room,
+        targetRoom: target_room
       })
     }
 

@@ -1,3 +1,30 @@
-<p>Reached instructions page!</p>
-<p>Here's my data</p>
-<%- instructionData[0].writteninstructions %>
+<!doctype html>
+
+<head>
+    <% include ../partials/head_content %>
+    <title>Instructions Page</title>
+</head>
+
+<% include ../partials/navigation_bar %>
+
+<h1 class="display-4">Reached instructions page!</h1>
+
+<p class="lead" id="instructions_display">
+    <!-- Append instructions here -->
+</p>
+
+
+<script>
+    var instructions = JSON.parse('<%- JSON.stringify(instructionData[0].writteninstructions) %>')
+    var currentRoom = `<%- currentRoom%>`
+    var targetRoom = `<%-targetRoom%>`
+
+    document.getElementById("instructions_display").innerHTML +=
+        `In order to get from room ${currentRoom} to room ${targetRoom}, 
+    you must: ${instructions}`
+
+    // console.log("Instructions: ", instructions)
+    // console.log("Current Room: ", currentRoom)
+    // console.log("Target Room: ", targetRoom)
+
+</script>

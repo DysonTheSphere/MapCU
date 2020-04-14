@@ -20,6 +20,14 @@
 		crossorigin="anonymous"></script> -->
 </head>
 
+<script>
+	var data = JSON.parse('<%- JSON.stringify(myData) %>')
+	console.log(data)
+	if (data.writtenInstructions == "Fail") {
+		alert("Incorrect data! Try entering other rooms")
+	}
+
+</script>
 
 
 <script>
@@ -98,20 +106,26 @@
 
 		</div>
 	</div>
-	<form>
-		<div class="form-group">
-			<label for="exampleInputEmail1">Enter Destination Room Number</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter interest">
+
+
+
+	</form>
+
+	<form action="/instructions" method="POST">
+
+		<div class=" form-group">
+			<label>Enter Destination Room Number</label>
+			<input type="text" class="form-control" name="current_room" placeholder="Room Number">
 			<label for="exampleInputEmail1">Enter Current Location</label>
-			<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-				placeholder="Enter interest">
+			<input type="text" class="form-control" name="target_room" placeholder="Enter interest">
 			<br>
 			<div class="form-group">
-				<a id="search_id" href="javascript:void(0)" class="btn btn-primary btn-block login-btn"
-					onclick="onClickFunction()">Search</a>
+				<button class="btn btn-primary btn-block login-btn" type="Submit">Give me
+					instructions!</button>
 			</div>
 			</label>
 	</form>
+
 </body>
 
 <script>

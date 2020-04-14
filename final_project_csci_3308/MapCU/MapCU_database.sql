@@ -29,11 +29,7 @@ insert into Users values ('gtzinov', 'MapCU2020');
 
 --query for finding correct instruction
 
-select writtenInstructions from Instructions where instructions.InstructionCombinations[1] in 
-	(select RoomSection from Rooms where RoomNumber = 135) 
-	AND
-	instructions.InstructionCombinations[2] in (select RoomSection from Rooms where 		RoomNumber = 151);
-
+	
 /*select writtenInstructions from Instructions where instructions.InstructionCombinations[1] in 
 (select RoomSection from Rooms where RoomNumber = <dataObject.currentRoom>) 
 AND

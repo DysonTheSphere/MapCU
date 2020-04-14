@@ -16,3 +16,5 @@ through websites and npm install command
 
 Go to browser, and go to 
 "127.0.0.1:3000/home"
+or 
+"localhost:3000/home"

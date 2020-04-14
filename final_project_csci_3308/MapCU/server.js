@@ -64,6 +64,38 @@ app.get('/home', function (req, res) {
   })
 });
 
+app.post('/instructions', function (req, res) {
+  var current_room = req.body.current_room
+  var target_room = req.body.target_room
+  var query = `
+  select writtenInstructions from Instructions where instructions.InstructionCombinations[1] in 
+	(select RoomSection from Rooms where RoomNumber = ${current_room}) 
+	AND
+	instructions.InstructionCombinations[2] in (select RoomSection from Rooms where RoomNumber = ${target_room});
+
+  
+  `
+  db.any(query).then(function (data) {
+    if (data.length > 0) {
+      console.log(data)
+      res.render("pages/instructions_page", {
+        instructionData: data
+      })
+    }
+
+    else {
+      console.log("Fail")
+      res.render("pages/home", {
+        myData: { "writtenInstructions": "Fail" }
+      })
+
+    }
+  })
+    .catch(function (fail) {
+      console.log("Fail", fail)
+    })
+})
+
 var port = 3000
 app.listen(port)
 console.log("Server running on port: " + port)

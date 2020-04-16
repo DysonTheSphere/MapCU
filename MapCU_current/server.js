@@ -46,7 +46,7 @@ function checkAuth(req, res, next) {
 
   if (!req.session.user_id) {
     if (req.query.redirect == 'true') {
-      console.log("redirect = true, passing on to ", req.path)
+      // console.log("redirect = true, passing on to ", req.path)
       next();
     }
 
@@ -55,19 +55,19 @@ function checkAuth(req, res, next) {
     }
 
     else {
-      console.log("redirecting from ", req.path)
+      // console.log("redirecting from ", req.path)
 
       res.redirect('/login?redirect=true');
     }
 
   } else {
     if (req.path == '/login') {
-      console.log("path was login with token")
+      // console.log("path was login with token")
       res.redirect('/home')
     }
 
     else {
-      console.log("normal authenticated route ", req.path)
+      // console.log("normal authenticated route ", req.path)
       next();
     }
   }
@@ -77,12 +77,14 @@ function checkAuth(req, res, next) {
 app.get('/home', checkAuth, function (req, res) {
   // res.cookie("Name", "Gregor")
   // res.send(req.headers)
+  console.log(req.query)
 
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
     // console.log(data)
     res.render("pages/home", {
-      // myData: data
+      user: req.session.user_id,
+      instructionStatus: req.query.instructions
     })
   })
 });
@@ -146,14 +148,14 @@ app.post('/instructions', function (req, res) {
 
     else {
       console.log("Empty Query")
-      res.render("pages/home", {
-        myData: { "writtenInstructions": "Fail" }
+      res.redirect("/home", {
+        instructionData: "Invalid"
       })
 
     }
   })
     .catch(function (fail) {
-      console.log("Fail", fail)
+      res.redirect("/home?instructions=invalid")
     })
 })
 

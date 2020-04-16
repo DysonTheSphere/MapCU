@@ -12,6 +12,7 @@
         "ejs-lint": "^0.3.0",
         "expres": "0.0.5",
         "express": "^4.17.1",
+        "nodemon": "^2.0.3",
         "pg-promise": "^8.5.1",
         "serve": "^11.3.0"
     }

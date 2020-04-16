@@ -26,7 +26,6 @@ var db = pgp(dbConfig);
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-
 app.use(express.static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
 app.use(cors())
 
@@ -41,9 +40,32 @@ app.get('/home', function (req, res) {
   })
 });
 
-app.get('/map', function (req, res) {
-  res.render("pages/map", {
+app.get('/login', function (req, res) {
+  res.render("pages/login", {
   })
+});
+
+app.post('/login', function (req, res) {
+  var username = req.body.username
+  var password = req.body.password
+  var query = `select * from Users where username = '${username}';`
+
+  db.any(query).then(function (data) {
+    console.log(data)
+    if (data.length == 0) {
+      res.send("Fail, query length 0")
+    }
+
+    else {
+      if (password == data[0].password) {
+        res.render("pages/home")
+      }
+
+    }
+  })
+    .catch(function (fail) {
+      console.log("Fail", fail)
+    })
 });
 
 app.post('/instructions', function (req, res) {

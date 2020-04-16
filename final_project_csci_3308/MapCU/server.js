@@ -4,6 +4,7 @@
   Pg-Promise   - A database tool to help use connect to our PostgreSQL database
 ***********************/
 
+
 var express = require('express');
 var app = express();
 var cors = require('cors')
@@ -91,7 +92,7 @@ app.post('/instructions', function (req, res) {
     }
 
     else {
-      console.log("Fail")
+      console.log("Data empty")
       res.render("pages/home", {
         myData: { "writtenInstructions": "Fail" }
       })

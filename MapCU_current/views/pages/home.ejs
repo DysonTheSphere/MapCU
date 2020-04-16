@@ -7,17 +7,10 @@
 
 </head>
 
+
+
+
 <% include ../partials/navigation_bar %>
-
-<script>
-	var data = JSON.parse('<%- JSON.stringify(myData) %>')
-	console.log(data)
-	if (data.writtenInstructions == "Fail") {
-		alert("Incorrect data! Try entering other rooms")
-	}
-
-</script>
-
 
 <script>
 	function onClickFunction() {
@@ -63,13 +56,6 @@
 	</form>
 
 </body>
-
-<script>
-	var data = JSON.parse('<%- JSON.stringify(myData) %>')
-	console.log("Client side Javascript has access to data, yay!", data)
-</script>
-
-
 
 
 </html>

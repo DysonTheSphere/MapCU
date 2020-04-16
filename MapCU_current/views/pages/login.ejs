@@ -6,6 +6,17 @@
 
 <body>
 
+    <% include ../partials/navigation_bar %>
+
+
+
+
+    <script>
+        var status = (`<%- typeof(status) !== 'undefined' ? status : 'All Good' %>`)
+        console.log(status)
+
+    </script>
+
     <form action="/login" method="POST">
 
         <div class=" form-group">

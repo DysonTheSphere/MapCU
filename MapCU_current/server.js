@@ -6,13 +6,16 @@
 
 
 var express = require('express');
-var app = express();
+var session = require('express-session')
 var cors = require('cors')
-var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
+var bodyParser = require('body-parser');
+var pgp = require('pg-promise')();
+
+
+var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var pgp = require('pg-promise')();
 //database 
 const dbConfig = {
   host: 'localhost',
@@ -29,32 +32,64 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
 app.use(cors())
 
+app.use(session({
+  secret: 'gregor',
+  resave: false,
+  saveUninitialized: true
+}))
+
 
 
 
 function checkAuth(req, res, next) {
+  console.log(req.session)
+
   if (!req.session.user_id) {
-    res.render('pages/login');
+    if (req.query.redirect == 'true') {
+      console.log("redirect = true, passing on to ", req.path)
+      next();
+    }
+
+    if (req.path == '/login') {
+      next();
+    }
+
+    else {
+      console.log("redirecting from ", req.path)
+
+      res.redirect('/login?redirect=true');
+    }
+
   } else {
-    next();
+    if (req.path == '/login') {
+      console.log("path was login with token")
+      res.redirect('/home')
+    }
+
+    else {
+      console.log("normal authenticated route ", req.path)
+      next();
+    }
   }
 }
 
 
-
 app.get('/home', checkAuth, function (req, res) {
+  // res.cookie("Name", "Gregor")
+  // res.send(req.headers)
+
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
     // console.log(data)
     res.render("pages/home", {
-      myData: data
+      // myData: data
     })
   })
 });
 
-app.get('/login', function (req, res) {
-  res.render("pages/login", {
-  })
+app.get('/login', checkAuth, function (req, res) {
+  console.log("Get login route")
+  res.render("pages/login")
 });
 
 app.post('/login', function (req, res) {
@@ -65,16 +100,25 @@ app.post('/login', function (req, res) {
   db.any(query).then(function (data) {
     console.log(data)
     if (data.length == 0) {
-      res.send("Fail, query length 0")
+      res.render("pages/login", {
+        status: "IncorrectLogin"
+      })
+    }
+
+    console.log(data)
+
+    if (password == data[0].password) {
+      req.session.user_id = username
+      res.redirect("/home")
     }
 
     else {
-      if (password == data[0].password) {
-        req.session.user_id = username
-        res.render("pages/home")
-      }
-
+      res.render("pages/login", {
+        status: "IncorrectLogin"
+      })
     }
+
+
   })
     .catch(function (fail) {
       console.log("Fail", fail)

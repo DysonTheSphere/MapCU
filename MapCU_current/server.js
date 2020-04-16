@@ -30,7 +30,19 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
 app.use(cors())
 
 
-app.get('/home', function (req, res) {
+
+
+function checkAuth(req, res, next) {
+  if (!req.session.user_id) {
+    res.render('pages/login');
+  } else {
+    next();
+  }
+}
+
+
+
+app.get('/home', checkAuth, function (req, res) {
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
     // console.log(data)
@@ -58,6 +70,7 @@ app.post('/login', function (req, res) {
 
     else {
       if (password == data[0].password) {
+        req.session.user_id = username
         res.render("pages/home")
       }
 

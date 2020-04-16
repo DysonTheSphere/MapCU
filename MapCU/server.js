@@ -29,30 +29,6 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));//This line is necessary for us to use relative paths and access our resources directory
 app.use(cors())
 
-// app.get('/', function (req, res) {
-//   res.send(`Oops! Are you sure you didn't mean to access the port
-//   on which Serve is operating on? This is the port for the NodeJS
-//   server, which is only for data API calls.`)
-// })
-
-
-
-// app.get('/rooms_data', cors(), function (req, res) {
-//   var query = 'select * from rooms;'
-//   db.any(query).then(function (data) {
-//     // console.log(data)
-//     res.json(data)
-//   })
-// });
-
-// app.post('/user_form', function (req, res) {
-//   console.log("Entering post user_form request")
-//   console.log(req.body)
-//   res.json({ 1: 1 })
-// })
-
-
-
 
 app.get('/home', function (req, res) {
   var query = 'select * from rooms;'
@@ -76,10 +52,8 @@ app.post('/instructions', function (req, res) {
   select writtenInstructions from Instructions where instructions.InstructionCombinations[1] in 
 	(select RoomSection from Rooms where RoomNumber = ${current_room}) 
 	AND
-	instructions.InstructionCombinations[2] in (select RoomSection from Rooms where RoomNumber = ${target_room});
+  instructions.InstructionCombinations[2] in (select RoomSection from Rooms where RoomNumber = ${target_room});`
 
-  
-  `
   db.any(query).then(function (data) {
     if (data.length > 0) {
       console.log(data)
@@ -91,7 +65,7 @@ app.post('/instructions', function (req, res) {
     }
 
     else {
-      console.log("Fail")
+      console.log("Empty Query")
       res.render("pages/home", {
         myData: { "writtenInstructions": "Fail" }
       })

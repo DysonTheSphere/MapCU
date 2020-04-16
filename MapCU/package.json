@@ -6,6 +6,7 @@
         "start-ui": "serve web"
     },
     "dependencies": {
+        "bcrypt": "^4.0.1",
         "cors": "^2.8.5",
         "ejs": "^2.5.5",
         "ejs-lint": "^0.3.0",

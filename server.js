@@ -160,6 +160,13 @@ app.post('/instructions', function (req, res) {
     })
 })
 
+app.post('/logout', function (req, res) {
+  req.session.user_id = ""
+  res.redirect("login")
+
+})
+
+
 var port = 3000
 app.listen(port)
 console.log("Server running on port: " + port)

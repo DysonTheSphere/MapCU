@@ -1,29 +1,19 @@
--inform user of incorrect login
-
 -finish database
 
 -add more interactable UI elements, more content
 
--"please enter existing room number" message instead of current error message
-
 -add context to application, what its for, what we have data for (first room)
-
--consistency with mapCU title, center both
 
 -add more pages, or nav bar links to CU resources (engineering site, campus security resources, link to tutoring page)
 
 -buttons that show different maps
 
--link CU buff logo to CU boulder website
-
 -make form bigger and more accessible ?
-
--png of ralphie on right side of instructions page, bottom of it say "HAPPY TRAILS"	
 
 -open up port, route to mapcu domain
 
-
 -make website have two focuses, one for navigation, one for all information regarding engineering center
 ---navigation page, information page
+
 LONGSHOT: 
 see if cu website has API for room event schedule, and display room events for selected room

@@ -43,8 +43,7 @@
 						<label for="exampleInputEmail1">Enter Current Location</label>
 						<input id="instructionInput2" type="text" class="form-control" name="target_room"
 							placeholder="Room Number">
-						<small id="formHelp" class="text-danger"></small>
-						<br>
+						<p id="formHelp" class="text-danger" style="padding-top: 10px;"></p>
 
 						<div class="form-group">
 							<br>
@@ -74,7 +73,7 @@
 			document.getElementById("instructionInput").classList.add(`is-invalid`)
 			document.getElementById("instructionInput2").classList.add(`form-control`)
 			document.getElementById("instructionInput2").classList.add(`is-invalid`)
-			document.getElementById("formHelp").innerHTML += "One or both of these rooms do not exist, try a room closeby."
+			document.getElementById("formHelp").innerHTML += "One or both of these rooms do not exist, try a room closeby, or enter an existing room number"
 
 
 

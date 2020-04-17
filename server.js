@@ -89,6 +89,7 @@ app.get('/home', checkAuth, function (req, res) {
   })
 });
 
+
 app.get('/login', checkAuth, function (req, res) {
   console.log("Get login route")
   res.render("pages/login")

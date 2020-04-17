@@ -8,25 +8,27 @@
 
     <% include ../partials/navigation_bar %>
 
-
-
-
     <script>
         var status = (`<%- typeof(status) !== 'undefined' ? status : 'All Good' %>`)
         console.log(status)
-
     </script>
+
+
+    <h1 id="user_display" class="display-3">Welcome to MapCU</h1>
+
 
     <form action="/login" method="POST">
 
         <div class=" form-group">
             <label>Enter Username</label>
             <input type="text" class="form-control" name="username">
+            <br>
             <label for="exampleInputEmail1">Enter Password</label>
-            <input type="text" class="form-control" name="password">
+
+            <input type="password" class="form-control" name="password">
             <br>
             <div class="form-group">
-                <button class="btn btn-primary btn-block login-btn" type="Submit">Login</button>
+                <button class="btn btn-dark btn-block" type="Submit">Login</button>
             </div>
             </label>
     </form>

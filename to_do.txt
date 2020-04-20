@@ -15,5 +15,6 @@
 -make website have two focuses, one for navigation, one for all information regarding engineering center
 ---navigation page, information page
 
+
 LONGSHOT: 
 see if cu website has API for room event schedule, and display room events for selected room

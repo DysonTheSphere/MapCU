@@ -73,6 +73,9 @@ function checkAuth(req, res, next) {
   }
 }
 
+app.get('/', function (req, res) {
+  res.redirect('/home')
+})
 
 app.get('/home', checkAuth, function (req, res) {
   // res.cookie("Name", "Gregor")

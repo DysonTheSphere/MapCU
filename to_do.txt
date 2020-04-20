@@ -1,17 +1,19 @@
+Sign up:
+-notify user of adding existing user
+-add confirm password field with javascript function
+
+Login Page:
+-clean up UI for all of the buttons
+
+Backend:
 -finish database
 
+General:
 -add more interactable UI elements, more content
-
 -add context to application, what its for, what we have data for (first room)
-
 -add more pages, or nav bar links to CU resources (engineering site, campus security resources, link to tutoring page)
-
 -buttons that show different maps
-
 -make form bigger and more accessible ?
-
--open up port, route to mapcu domain
-
 -make website have two focuses, one for navigation, one for all information regarding engineering center
 ---navigation page, information page
 

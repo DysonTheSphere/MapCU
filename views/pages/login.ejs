@@ -16,7 +16,6 @@
 
         <h1 id="user_display" class="display-3">Welcome to MapCU</h1>
 
-
         <form action="/login" method="POST">
 
             <div class=" form-group">
@@ -36,6 +35,8 @@
             </div>
         </form>
 
+
+
         <p style="text-align: center;"><em>Not yet a user?</em></p>
         <div class="text-center">
             <a href="#myModal" class="btn btn-outline-dark" data-toggle="modal" target="_top" onclick="openModal">Click
@@ -43,9 +44,12 @@
                 account</a>
         </div>
 
+
+
+
         <br>
-        <!-- <div id="userExistsDisplay" class="alert alert-danger" role="alert">
-        </div> -->
+        <div id="userExistsDisplay" style="display: none;" role="alert">
+        </div>
 
         <div id="myModal" class="modal fade">
             <div class="modal-dialog modal-login modal-content">
@@ -54,15 +58,23 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
 
+
                 <div class="modal-body">
                     <form action="/create_user" method="POST">
 
+                        <!-- actual form -->
+
                         <div class="form-group">
+
+                            <label>Username</label>
                             <input id="username" type="text" class="form-control" name="username" placeholder="Username"
                                 required="required">
+
                         </div>
 
                         <div class="form-group">
+
+                            <label>Password</label>
                             <input id="password" type="password" class="form-control" name="password"
                                 placeholder="Password" required="required">
                         </div>
@@ -77,31 +89,38 @@
 
     </div>
 
-
-
     <script>
         var status = (`<%- typeof(status) !== 'undefined' ? status : 'All Good' %>`)
-        console.log(status)
-
         if (status == "IncorrectLogin") {
             document.getElementById("usernameInput").classList.add(`form-control`)
             document.getElementById("usernameInput").classList.add(`is-invalid`)
             document.getElementById("passwordInput").classList.add(`form-control`)
             document.getElementById("passwordInput").classList.add(`is-invalid`)
             document.getElementById("formHelp").innerHTML += "Invalid login"
-
-
-
         }
 
-        var isValidUser = (`<%- typeof(user) !== 'undefined' ? user : 'NA' %>`)
-        console.log(isValidUser)
-        if (isValidUser == "true") {
-            console.log("hit console log for true existing user")
+        var userExists = (`<%- typeof(userExists) !== 'undefined' ? userExists : 'NA' %>`)
+        console.log(userExists)
+        if (userExists == "true") {
             document.getElementById("userExistsDisplay").innerHTML += "This username is already taken."
-            document.getElementById("userExistsDisplay").style.display = "inline"
+            document.getElementById("userExistsDisplay").style.display = "block"
+            document.getElementById("userExistsDisplay").className = "alert alert-danger"
+
 
         }
+
+        var accountCreated = (`<%- typeof(accountCreated) !== 'undefined' ? accountCreated : 'NA' %>`)
+        console.log(accountCreated)
+        if (accountCreated == "true") {
+            document.getElementById("userExistsDisplay").innerHTML += "Great! Now log in with the account you just made."
+            document.getElementById("userExistsDisplay").style.display = "block"
+            document.getElementById("userExistsDisplay").className = "alert alert-success"
+
+
+        }
+
     </script>
+
+
 
 </body>

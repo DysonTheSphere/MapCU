@@ -96,9 +96,10 @@ app.get('/home', checkAuth, function (req, res) {
 
 
 app.get('/login', checkAuth, function (req, res) {
-  console.log(req.query.userExists)
+  console.log(req.query)
   res.render("pages/login", {
-    userExists: req.query.userExists
+    userExists: req.query.userExists,
+    accountCreated: req.query.accountCreated
   })
 });
 
@@ -142,23 +143,19 @@ app.post('/create_user', function (req, res) {
   var Insertquery = `insert into Users values ('${username}', '${password}')`;
 
   db.any(checkQuery).then(data => {
-    // console.log(data[0].username)
-    if (data[0].username == username) {
+    if (data.length != 0) {
       res.redirect('/login?userExists=true')
     }
-
     else {
       db.any(Insertquery).then(function (data) {
-        res.redirect('/login?accountCreated = true')
+        res.redirect('/login?accountCreated=true')
       })
         .catch(function (fail) {
           console.log("Fail", fail)
-          res.redirect('/login?accountCreated = false')
+          res.redirect('/login?accountCreated=false')
         })
     }
   })
-
-
 })
 
 app.post('/instructions', function (req, res) {
@@ -203,4 +200,5 @@ app.post('/logout', function (req, res) {
 var port = 3000
 app.listen(port)
 console.log("Server running on port: " + port)
+
 

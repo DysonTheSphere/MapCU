@@ -1,5 +1,4 @@
-console.log("Entering login.js")
-
+//function for verifying passwords match NOT YET DONE AND IMPLEMENTED
 function openModal() {
       console.log("entering openModal")
       var myInput = document.getElementById("psw");

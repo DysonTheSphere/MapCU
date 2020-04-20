@@ -41,8 +41,10 @@ app.use(session({
 
 
 
+
 function checkAuth(req, res, next) {
-  console.log(req.session)
+
+  console.log("User authenticating!")
 
   if (!req.session.user_id) {
     if (req.query.redirect == 'true') {
@@ -80,7 +82,7 @@ app.get('/', function (req, res) {
 app.get('/home', checkAuth, function (req, res) {
   // res.cookie("Name", "Gregor")
   // res.send(req.headers)
-  console.log(req.query)
+  // console.log(req.query)
 
   var query = 'select * from rooms;'
   db.any(query).then(function (data) {
@@ -94,8 +96,10 @@ app.get('/home', checkAuth, function (req, res) {
 
 
 app.get('/login', checkAuth, function (req, res) {
-  console.log("Get login route")
-  res.render("pages/login")
+  console.log(req.query.userExists)
+  res.render("pages/login", {
+    userExists: req.query.userExists
+  })
 });
 
 app.post('/login', function (req, res) {
@@ -104,14 +108,14 @@ app.post('/login', function (req, res) {
   var query = `select * from Users where username = '${username}';`
 
   db.any(query).then(function (data) {
-    console.log(data)
+    // console.log(data)
     if (data.length == 0) {
       res.render("pages/login", {
         status: "IncorrectLogin"
       })
     }
 
-    console.log(data)
+    // console.log(data)
 
     if (password == data[0].password) {
       req.session.user_id = username
@@ -130,6 +134,32 @@ app.post('/login', function (req, res) {
       console.log("Fail", fail)
     })
 });
+
+app.post('/create_user', function (req, res) {
+  var username = req.body.username
+  var password = req.body.password
+  var checkQuery = `select * from users where username = '${username}'`
+  var Insertquery = `insert into Users values ('${username}', '${password}')`;
+
+  db.any(checkQuery).then(data => {
+    // console.log(data[0].username)
+    if (data[0].username == username) {
+      res.redirect('/login?userExists=true')
+    }
+
+    else {
+      db.any(Insertquery).then(function (data) {
+        res.redirect('/login?accountCreated = true')
+      })
+        .catch(function (fail) {
+          console.log("Fail", fail)
+          res.redirect('/login?accountCreated = false')
+        })
+    }
+  })
+
+
+})
 
 app.post('/instructions', function (req, res) {
   var current_room = req.body.current_room

@@ -1,41 +1,49 @@
+<style>
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <div class="navbar-collapse" id="navbarText">
 
 
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="https://www.colorado.edu/" style="padding-right: 5px;">
-                    <img src="https://cdn.freelogovectors.net/wp-content/uploads/2016/12/Colorado-Buffaloes-Logo.png"
-                        height="50px" width="65px">
-                </a>
-            </li>
-
-            <li class="nav-item active">
-                <a style="padding-top: 20%;" class="nav-link" href="/home">Home</a>
-            </li>
+    <div class="container">
 
 
-            <li class="nav-item active">
-                <a style="padding-top: 6%;" class="nav-link"
-                    href="https://www.colorado.edu/even/about-us/map-and-directions/engineering-center">Engineering
-                    Center website</a>
-            </li>
-        </ul>
+        <div class="navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <div class="dropdown">
+                    <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Resources
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item"
+                            href="https://www.colorado.edu/even/about-us/map-and-directions/engineering-center">Engineering
+                            Center website</a>
+                    </div>
+                </div>
+            </ul>
 
 
 
+            <a class="navbar-brand" href="https://www.colorado.edu/">
+                <img src="https://cdn.freelogovectors.net/wp-content/uploads/2016/12/Colorado-Buffaloes-Logo.png"
+                    height="50px" width="65px">
+            </a>
 
 
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item active navbar-right">
-                <form action="/logout" method="POST">
-                    <button type="submit" class="btn btn-outline-light">Logout</button>
-                </form>
-            </li>
-        </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active navbar-right">
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="btn btn-outline-light">Logout</button>
+                    </form>
+                </li>
+            </ul>
 
-        <div class="form-inline my-2 my-lg-0">
         </div>
     </div>
+
 </nav>

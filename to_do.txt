@@ -1,7 +1,3 @@
-Sign up:
--notify user of adding existing user
--add confirm password field with javascript function
-
 Login Page:
 -clean up UI for all of the buttons
 

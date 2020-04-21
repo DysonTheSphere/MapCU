@@ -1,0 +1,62 @@
+<!doctype html>
+
+<head>
+    <% include ../partials/head_content %>
+    <title>Instructions Page</title>
+</head>
+
+<body>
+    <% include ../partials/navigation_bar %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+
+                <h1 class="display-3">Reached instructions page!</h1>
+
+                <p class="lead" id="instructions_display">
+                    <!-- Append instructions here -->
+                </p>
+
+            </div>
+
+            <div class="col ">
+                <img src="views/images/cu_logo.jpg">
+            </div>
+
+        </div>
+
+        <div class="fixed-bottom">
+            <div class="col">
+                <p>Happy trails!</p>
+            </div>
+
+        </div>
+        <br>
+        <form action="/home" method="GET">
+            <button class="btn btn-dark btn-block" type="submit">Get new instruction</button>
+        </form>
+
+    </div>
+
+</body>
+
+
+
+<script>
+    var instructions = JSON.parse('<%- JSON.stringify(instructionData[0].writteninstructions) %>')
+    var currentRoom = `<%- currentRoom%>`
+    var targetRoom = `<%-targetRoom%>`
+
+    document.getElementById("instructions_display").innerHTML +=
+        `In order to get from room ${currentRoom} to room ${targetRoom}, 
+    you must: ${instructions}`
+
+    // console.log("Instructions: ", instructions)
+    // console.log("Current Room: ", currentRoom)
+    // console.log("Target Room: ", targetRoom)
+
+
+
+</script>

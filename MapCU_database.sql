@@ -77,6 +77,10 @@ DUPLICATES:
 1590->section 6
 1070->section 6
 1040->section 6
+1610->section 6
+1170->section 6
+1130->section 6
+1000->section 6
 */
 insert into Rooms values (131, 'ECCR', 1), (133, 'ECCR', 1), (137, 'ECCR', 1), (139, 'ECCR', 1), (105, 'ECCR', 1), (108, 'ECCR', 1), (110, 'ECCR', 1);
 insert into Rooms values (116, 'ECCR', 1), (118, 'ECCR', 1), (150, 'ECCR', 1), (167, 'ECCE', 2), (161, 'ECCE', 2), (157, 'ECCE', 2), (168, 'ECCE', 2);
@@ -89,18 +93,9 @@ insert into Rooms values (136, 'ECAE', 5), (138, 'ECAE', 5), (175, 'ECAE', 5), (
 insert into Rooms values (185, 'ECAE', 5), (187, 'ECAE', 5), (189, 'ECAE', 5), (172, 'ECAE', 5), (188, 'ECAE', 5), (140, 'ECAE', 5);
 insert into Rooms values (142, 'ECAE', 5), (190, 'ECAE', 5), (191, 'ECAE', 5), (193, 'ECAE', 5), (194, 'ECAE', 5), (195, 'ECAE', 5), (196, 'ECAE', 5);
 insert into Rooms values (197, 'ECAE', 5), (199, 'ECAE', 5), (198, 'ECAE', 5),  (1520, 'ECAE', 6), (164, 'ECAE', 6), (125, 'ECAE', 6);
-insert into Rooms values (127, 'ECAE', 6), (129, 'ECAE', 6), (1310, 'ECAE', 6), (1260, 'ECAE', 6), (128, 'ECAE', 6), (130, 'ECAE', 6), (161, 'ECAE', 6);
-insert into Rooms values (1590, 'ECAE', 6), (1570, 'ECAE', 6), (155, 'ECAE', 6), (1530, 'ECAE', 6), (117, 'ECAE', 6), (115, 'ECAE', 6), (113, 'ECAE', 6);
-insert into Rooms values (111, 'ECAE', 6), (1090, 'ECAE', 6), (1070, 'ECAE', 6), (1050, 'ECAE', 6), (103, 'ECAE', 6), (101, 'ECAE', 6), (100, 'ECAE', 6);
+insert into Rooms values (127, 'ECAE', 6), (129, 'ECAE', 6), (1310, 'ECAE', 6), (1260, 'ECAE', 6), (128, 'ECAE', 6), (130, 'ECAE', 6), (1610, 'ECAE', 6);
+insert into Rooms values (1590, 'ECAE', 6), (1570, 'ECAE', 6), (155, 'ECAE', 6), (1530, 'ECAE', 6), (1170, 'ECAE', 6), (115, 'ECAE', 6), (1130, 'ECAE', 6);
+insert into Rooms values (111, 'ECAE', 6), (1090, 'ECAE', 6), (1070, 'ECAE', 6), (1050, 'ECAE', 6), (103, 'ECAE', 6), (101, 'ECAE', 6), (1000, 'ECAE', 6);
 insert into Rooms values (151, 'ECAE', 6), (11600, 'ECAE', 6), (11800, 'ECAE', 6), (1040, 'ECAE', 6), (121, 'ECAE', 6), (1020, 'ECAE', 6), (1190, 'ECAE', 6);
 
 insert into Users values ('gtzinov', 'MapCU2020');
-
-
---query for finding correct instruction
-
-/*select writtenInstructions from Instructions where instructions.InstructionCombinations[1] in
-(select RoomSection from Rooms where RoomNumber = <dataObject.currentRoom>)
-AND
-instructions.InstructionCombinations[2] in (select RoomSection from Rooms where 		RoomNumber = <dataObject.intendedRoom);
-*/

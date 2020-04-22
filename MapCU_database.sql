@@ -17,14 +17,6 @@ create table if not exists Users(
 );
 
 
-<<<<<<< HEAD
-insert into Instructions values(ARRAY[1, 2], 'Take a left to exit the section, and walk straight for 3 meters and take a left'),
-(ARRAY[1, 3], 'Going from 1 to 3'), (ARRAY[4,2], 'Going from 4 to 2'), (ARRAY[1,5], 'Going from 1 to 5');
-
-insert into Rooms values (131, 'ECCR', 1), (153, 'ECCE', 2), (129, 'ECCS', 2);
-
-insert into Users values ('gtzinov', 'MapCU2020');
-=======
 insert into Instructions values(ARRAY[1, 2], 'Exit the ECCR section, and walk straight for 3 meters and take a right'),
 (ARRAY[1,3], 'Exit the ECCR section, walk straight for approximatley 3 meters, and take a right to enter the ECCE building, then walk straight for approximatley 1 meter to arrive at your destination'),
 (ARRAY[1,5], 'Exit the ECCR building, and continue past the elevator until you have reached the ECAE building. Then, take an immediate left to get to your location'),
@@ -56,7 +48,6 @@ insert into Instructions values(ARRAY[1, 2], 'Exit the ECCR section, and walk st
 (ARRAY[6,4], 'Exit the ECAE section on your left, then, continue straight until you have arrived at the elevators, after that, take a left and continue straight until you have reached the ECCE building then, take a left to arrive at your destination, afterwards, continue straight for 1 meter, then take a left to arrive at your destination'),
 (ARRAY[6,5], 'View right and continue straight to arrive at your destination');
 
->>>>>>> a54cf639e24dd58b57a873891425e66830afd2b4
 
 /*
 subject 1: ECCR

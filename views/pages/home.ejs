@@ -37,20 +37,46 @@
 
 					<div class=" form-group">
 						<label>Enter Destination Room Number</label>
-						<input id="instructionInput" type="text" class="form-control" name="current_room"
-							placeholder="Room Number">
+						<div class="row">
+							<div class="col-4" style="margin-right: -5%; ">
+								<input id="instructionInput" type="text" class="form-control"
+									name="current_room_wing" placeholder="Wing">
+							</div>
+
+							<div class="col">
+								<input id="instructionInput2" type="text" class="form-control"
+									name="current_room_room_number" placeholder="Room Number">
+							</div>
+
+						</div>
 						<br>
-						<label for="exampleInputEmail1">Enter Current Location</label>
-						<input id="instructionInput2" type="text" class="form-control" name="target_room"
-							placeholder="Room Number">
-						<p id="formHelp" class="text-danger" style="padding-top: 10px;"></p>
 
 						<div class="form-group">
-							<br>
-							<button class="btn btn-dark btn-block" type="Submit">Give me
-								instructions!</button>
+							<label for="exampleInputEmail1">Enter Current Location</label>
+							<div class="row">
+								<div class="col-4" style="margin-right: -5%; ">
+									<input id="instructionInput3" type="text" class="form-control"
+										name="target_room_wing" placeholder="Wing">
+								</div>
+
+								<div class="col" style="margin-right: -5%; ">
+									<input id="instructionInput4" type="text" class="form-control"
+										name="target_room_room_number" placeholder="Room Number">
+								</div>
+								<br>
+								<br>
+								<br>
+								<button class="btn btn-dark btn-block" type="Submit">Give me
+									instructions!</button>
+
+							</div>
+
+
+
 						</div>
-						</label>
+
+						<p id="formHelp" class="text-danger" style="padding-top: 10px;"></p>
+
 					</div>
 				</form>
 
@@ -74,6 +100,11 @@
 			document.getElementById("instructionInput").classList.add(`is-invalid`)
 			document.getElementById("instructionInput2").classList.add(`form-control`)
 			document.getElementById("instructionInput2").classList.add(`is-invalid`)
+			document.getElementById("instructionInput3").classList.add(`form-control`)
+			document.getElementById("instructionInput3").classList.add(`is-invalid`)
+			document.getElementById("instructionInput4").classList.add(`form-control`)
+			document.getElementById("instructionInput4").classList.add(`is-invalid`)
+
 			document.getElementById("formHelp").innerHTML += "One or both of these rooms do not exist, try a room closeby, or enter an existing room number"
 
 

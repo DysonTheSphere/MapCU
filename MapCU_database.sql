@@ -5,7 +5,7 @@ create table if not exists Instructions (
 );
 
 create table if not exists Rooms(
-	RoomNumber integer PRIMARY KEY,
+	RoomNumber integer,
 	RoomSubect varchar(4),
 	RoomSection integer
 
@@ -84,18 +84,18 @@ DUPLICATES:
 */
 insert into Rooms values (131, 'ECCR', 1), (133, 'ECCR', 1), (137, 'ECCR', 1), (139, 'ECCR', 1), (105, 'ECCR', 1), (108, 'ECCR', 1), (110, 'ECCR', 1);
 insert into Rooms values (116, 'ECCR', 1), (118, 'ECCR', 1), (150, 'ECCR', 1), (167, 'ECCE', 2), (161, 'ECCE', 2), (157, 'ECCE', 2), (168, 'ECCE', 2);
-insert into Rooms values (162, 'ECCE', 2), (160, 'ECCE', 2), (159, 'ECCE', 2), (156, 'ECCE', 2), (152, 'ECCE', 2), (153, 'ECCE', 2), (1500, 'ECCE', 2);
-insert into Rooms values (119, 'ECCE', 3), (1180, 'ECCE', 3), (117, 'ECCE', 3), (1160, 'ECCE', 3), (144, 'ECCE', 3), (113, 'ECCE', 3);
+insert into Rooms values (162, 'ECCE', 2), (160, 'ECCE', 2), (159, 'ECCE', 2), (156, 'ECCE', 2), (152, 'ECCE', 2), (153, 'ECCE', 2), (150, 'ECCE', 2);
+insert into Rooms values (119, 'ECCE', 3), (118, 'ECCE', 3), (117, 'ECCE', 3), (116, 'ECCE', 3), (144, 'ECCE', 3), (113, 'ECCE', 3);
 insert into Rooms values (114, 'ECCE', 3), (112, 'ECCE', 3), (107, 'ECCE', 3), (109, 'ECCE', 3), (100, 'ECCE', 3), (102, 'ECCE', 4), (104, 'ECCE', 4);
-insert into Rooms values (106, 'ECCE', 4), (1080, 'ECCE', 4), (1100, 'ECCE', 4), (120, 'ECCE', 4), (122, 'ECCE', 4), (124, 'ECCE', 4), (126, 'ECCE', 4);
-insert into Rooms values (166, 'ECAE', 5), (171, 'ECAE', 5), (1330, 'ECAE', 5), (135, 'ECAE', 5), (1370, 'ECAE', 5), (1390, 'ECAE', 5), (132, 'ECAE', 5);
+insert into Rooms values (106, 'ECCE', 4), (108, 'ECCE', 4), (110, 'ECCE', 4), (120, 'ECCE', 4), (122, 'ECCE', 4), (124, 'ECCE', 4), (126, 'ECCE', 4);
+insert into Rooms values (166, 'ECAE', 5), (171, 'ECAE', 5), (133, 'ECAE', 5), (135, 'ECAE', 5), (137, 'ECAE', 5), (139, 'ECAE', 5), (132, 'ECAE', 5);
 insert into Rooms values (136, 'ECAE', 5), (138, 'ECAE', 5), (175, 'ECAE', 5), (177, 'ECAE', 5), (179, 'ECAE', 5), (181, 'ECAE', 5), (183, 'ECAE', 5);
 insert into Rooms values (185, 'ECAE', 5), (187, 'ECAE', 5), (189, 'ECAE', 5), (172, 'ECAE', 5), (188, 'ECAE', 5), (140, 'ECAE', 5);
 insert into Rooms values (142, 'ECAE', 5), (190, 'ECAE', 5), (191, 'ECAE', 5), (193, 'ECAE', 5), (194, 'ECAE', 5), (195, 'ECAE', 5), (196, 'ECAE', 5);
-insert into Rooms values (197, 'ECAE', 5), (199, 'ECAE', 5), (198, 'ECAE', 5),  (1520, 'ECAE', 6), (164, 'ECAE', 6), (125, 'ECAE', 6);
-insert into Rooms values (127, 'ECAE', 6), (129, 'ECAE', 6), (1310, 'ECAE', 6), (1260, 'ECAE', 6), (128, 'ECAE', 6), (130, 'ECAE', 6), (1610, 'ECAE', 6);
-insert into Rooms values (1590, 'ECAE', 6), (1570, 'ECAE', 6), (155, 'ECAE', 6), (1530, 'ECAE', 6), (1170, 'ECAE', 6), (115, 'ECAE', 6), (1130, 'ECAE', 6);
-insert into Rooms values (111, 'ECAE', 6), (1090, 'ECAE', 6), (1070, 'ECAE', 6), (1050, 'ECAE', 6), (103, 'ECAE', 6), (101, 'ECAE', 6), (1000, 'ECAE', 6);
-insert into Rooms values (151, 'ECAE', 6), (11600, 'ECAE', 6), (11800, 'ECAE', 6), (1040, 'ECAE', 6), (121, 'ECAE', 6), (1020, 'ECAE', 6), (1190, 'ECAE', 6);
+insert into Rooms values (197, 'ECAE', 5), (199, 'ECAE', 5), (198, 'ECAE', 5),  (152, 'ECAE', 6), (164, 'ECAE', 6), (125, 'ECAE', 6);
+insert into Rooms values (127, 'ECAE', 6), (129, 'ECAE', 6), (131, 'ECAE', 6), (126, 'ECAE', 6), (128, 'ECAE', 6), (130, 'ECAE', 6), (161, 'ECAE', 6);
+insert into Rooms values (159, 'ECAE', 6), (157, 'ECAE', 6), (155, 'ECAE', 6), (153, 'ECAE', 6), (117, 'ECAE', 6), (115, 'ECAE', 6), (113, 'ECAE', 6);
+insert into Rooms values (111, 'ECAE', 6), (109, 'ECAE', 6), (107, 'ECAE', 6), (105, 'ECAE', 6), (103, 'ECAE', 6), (101, 'ECAE', 6), (100, 'ECAE', 6);
+insert into Rooms values (151, 'ECAE', 6), (116, 'ECAE', 6), (118, 'ECAE', 6), (104, 'ECAE', 6), (121, 'ECAE', 6), (102, 'ECAE', 6), (119, 'ECAE', 6);
 
 insert into Users values ('gtzinov', 'MapCU2020');

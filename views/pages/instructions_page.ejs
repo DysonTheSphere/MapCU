@@ -50,9 +50,12 @@
     var instructions = JSON.parse('<%- JSON.stringify(instructionData[0].writteninstructions) %>')
     var currentRoom = `<%- currentRoom%>`
     var targetRoom = `<%-targetRoom%>`
+    var currentRoomWing = `<%- currentRoomWing%>`
+    var targetRoomWing = `<%- targetRoomWing%>`
+
 
     document.getElementById("instructions_display").innerHTML += `
-        In order to get from room ${currentRoom} to room ${targetRoom},
+        In order to get from ${currentRoomWing.toUpperCase()} ${currentRoom} to ${targetRoomWing.toUpperCase()} ${targetRoom},
     you must: <strong>${instructions} </strong>`
 
     // console.log("Instructions: ", instructions)

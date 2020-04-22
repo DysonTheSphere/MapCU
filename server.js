@@ -158,22 +158,28 @@ app.post('/create_user', function (req, res) {
   })
 })
 
+var string = "string"
+console.log(string.toUpperCase())
+
 app.post('/instructions', function (req, res) {
-  var current_room = req.body.current_room
-  var target_room = req.body.target_room
-  var query = `
-  select writtenInstructions from Instructions where instructions.InstructionCombinations[1] in 
-	(select RoomSection from Rooms where RoomNumber = ${current_room}) 
-	AND
-  instructions.InstructionCombinations[2] in (select RoomSection from Rooms where RoomNumber = ${target_room});`
+  var current_room_wing = req.body.current_room_wing
+  var current_room_room_number = req.body.current_room_room_number
+  var target_room_wing = req.body.target_room_wing
+  var target_room_room_number = req.body.target_room_room_number
+
+  // console.log(current_room_wing, current_room_room_number, target_room_wing, target_room_room_number)
+
+  var query = `select writtenInstructions from Instructions where instructions.InstructionCombinations[1] in (select RoomSection from Rooms where RoomNumber = ${current_room_room_number} and rooms.RoomSubject = '${current_room_wing.toUpperCase()}') AND instructions.InstructionCombinations[2] in (select RoomSection from Rooms where RoomNumber = ${target_room_room_number} and rooms.RoomSubject = '${target_room_wing.toUpperCase()}');`
 
   db.any(query).then(function (data) {
     if (data.length > 0) {
       console.log(data)
       res.render("pages/instructions_page", {
         instructionData: data,
-        currentRoom: current_room,
-        targetRoom: target_room
+        currentRoom: current_room_room_number,
+        currentRoomWing: current_room_wing,
+        targetRoom: target_room_room_number,
+        targetRoomWing: target_room_wing
       })
     }
 
@@ -186,6 +192,7 @@ app.post('/instructions', function (req, res) {
     }
   })
     .catch(function (fail) {
+      console.log("Fail", fail)
       res.redirect("/home?instructions=invalid")
     })
 })
@@ -196,6 +203,9 @@ app.post('/logout', function (req, res) {
 
 })
 
+app.get('/maps', function (req, res) {
+  res.render("pages/maps")
+})
 
 var port = 3000
 app.listen(port)

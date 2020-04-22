@@ -19,10 +19,10 @@ create table if not exists Users(
 );
 
 
-insert into Instructions values(ARRAY[1, 2], 'Going from 1 to 2'), 
+insert into Instructions values(ARRAY[1, 2], 'Take a left to exit the section, and walk straight for 3 meters and take a left'),
 (ARRAY[1, 3], 'Going from 1 to 3'), (ARRAY[4,2], 'Going from 4 to 2'), (ARRAY[1,5], 'Going from 1 to 5');
 
-insert into Rooms values (135, 'ECCR', 1), (151, 'ECCE', 2), (129, 'ECCS', 2);
+insert into Rooms values (131, 'ECCR', 1), (153, 'ECCE', 2), (129, 'ECCS', 2);
 
 insert into Users values ('gtzinov', 'MapCU2020');
 

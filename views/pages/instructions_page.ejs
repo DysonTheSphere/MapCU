@@ -13,16 +13,18 @@
             <div class="col">
 
 
-                <h1 class="display-3">Reached instructions page!</h1>
-
-                <p class="lead" id="instructions_display">
+                <!-- <h1 class="display-4">Reached instructions page!</h1> -->
+                <br>
+                <br>
+                <br>
+                <h1 style="font-size: 23pt; text-align: center;" class="display-4" id="instructions_display">
                     <!-- Append instructions here -->
-                </p>
+                </h1>
 
             </div>
 
-            <div class="col ">
-                <img src="views/images/cu_logo.jpg">
+            <div style="text-align: center" class="col">
+                <img style="text-align: center;" src="views/images/cu_logo.jpg">
             </div>
 
         </div>
@@ -49,13 +51,14 @@
     var currentRoom = `<%- currentRoom%>`
     var targetRoom = `<%-targetRoom%>`
 
-    document.getElementById("instructions_display").innerHTML +=
-        `In order to get from room ${currentRoom} to room ${targetRoom}, 
-    you must: ${instructions}`
+    document.getElementById("instructions_display").innerHTML += `
+        In order to get from room ${currentRoom} to room ${targetRoom},
+    you must: <strong>${instructions} </strong>`
 
     // console.log("Instructions: ", instructions)
     // console.log("Current Room: ", currentRoom)
     // console.log("Target Room: ", targetRoom)
+
 
 
 

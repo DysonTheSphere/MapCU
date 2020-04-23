@@ -12,14 +12,7 @@
 
 <% include ../partials/navigation_bar %>
 
-<script>
-	function onClickFunction() {
-		var formPostObject = {
-			username: "gtzinov",
-			password: "MapCU2020"
-		}
-	}
-</script>
+
 
 
 <style>
@@ -32,12 +25,32 @@
 	<div class="container">
 		<h1 id="user_display" class="display-3">Welcome to MapCU</h1>
 		<div class="row">
-			<div class="col-sm">
+			<div class="col">
 				<img src="views/images/engineering_center.png" height="375px" width="675px">
 			</div>
 
-			<div class="col-sm">
+			<div class="col">
 				<form action="/instructions" method="POST">
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Enter Current Location</label>
+						<div class="row">
+							<div class="col-4" style="margin-right: -5%; ">
+								<input id="instructionInput3" type="text" class="form-control"
+									name="target_room_wing" placeholder="Wing">
+							</div>
+
+							<div class="col" style="margin-right: -5%; ">
+								<input id="instructionInput4" type="text" class="form-control"
+									name="target_room_room_number" placeholder="Room Number">
+							</div>
+
+
+						</div>
+
+
+
+					</div>
 
 					<div class=" form-group">
 						<label>Enter Destination Room Number</label>
@@ -53,33 +66,14 @@
 							</div>
 
 						</div>
-						<br>
-
-						<div class="form-group">
-							<label for="exampleInputEmail1">Enter Current Location</label>
-							<div class="row">
-								<div class="col-4" style="margin-right: -5%; ">
-									<input id="instructionInput3" type="text" class="form-control"
-										name="target_room_wing" placeholder="Wing">
-								</div>
-
-								<div class="col" style="margin-right: -5%; ">
-									<input id="instructionInput4" type="text" class="form-control"
-										name="target_room_room_number" placeholder="Room Number">
-								</div>
-								<button style="margin-top: 35px;" class="btn btn-dark btn-block"
-									type="Submit">Give me
-									instructions!</button>
-
-							</div>
 
 
-
-						</div>
 
 						<p id="formHelp" class="text-danger" style="padding-top: 10px;"></p>
 
 					</div>
+					<button class="btn btn-dark btn-block" type="Submit">Give me
+						instructions!</button>
 				</form>
 
 			</div>

@@ -1,3 +1,9 @@
+Tomorrow:
+-map images into columns
+-login ui change
+-background color?
+
+
 Login Page:
 -clean up UI for all of the buttons
 

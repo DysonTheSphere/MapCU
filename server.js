@@ -158,9 +158,6 @@ app.post('/create_user', function (req, res) {
   })
 })
 
-var string = "string"
-console.log(string.toUpperCase())
-
 app.post('/instructions', function (req, res) {
   var current_room_wing = req.body.current_room_wing
   var current_room_room_number = req.body.current_room_room_number
@@ -203,7 +200,7 @@ app.post('/logout', function (req, res) {
 
 })
 
-app.get('/maps', function (req, res) {
+app.get('/maps', checkAuth, function (req, res) {
   res.render("pages/maps")
 })
 

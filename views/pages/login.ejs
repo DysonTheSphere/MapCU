@@ -31,13 +31,11 @@
     $(document).ready(function () {
         $("#user_display").animate({
             opacity: "100%"
-        }, 1500)
-    })
-
-    $(document).ready(function () {
-        $("#img_display").animate({
-            opacity: "100%"
-        }, 3500)
+        }, 750, function () {
+            $("#img_display").animate({
+                opacity: "100%"
+            }, 1500)
+        })
     })
 
 
@@ -46,22 +44,27 @@
 <body>
 
 
-    <h1 id="user_display" class="header-styling display-3" style="text-align: center; opacity: 0%;">Welcome to</h1>
+    <h1 id="user_display" class="header-styling display-3" style="text-align: center; opacity: 0%; margin-bottom: -1%;">
+        Welcome to</h1>
     <p style="text-align: center;"><img id="img_display" style="opacity: 0%;" src="views/images/mapculogo.png"
             height="150" width="450">
     </p>
 
+
+
     <div class="container">
 
-        <form action="/login" method="POST">
+        <form class=" col-1 offset-md-3" action="/login" method="POST">
             <div class="col-xs-3 col-centered">
                 <div style="width: 500px; text-align: center;" class=" form-group">
                     <label>Enter Username</label>
-                    <input id="usernameInput" type="text" class="form-control" name="username">
+                    <input id="usernameInput" type="text" class="form-control" style="margin-bottom: -2%;"
+                        name="username">
                     <br>
                     <label for="exampleInputEmail1">Enter Password</label>
 
-                    <input id="passwordInput" type="password" class="form-control" name="password">
+                    <input id="passwordInput" type="password" class="form-control" name="password"
+                        style="margin-bottom: -2%;">
                     <p id="formHelp" class="text-danger" style="padding-top:10px;"></p>
                     <br>
 
@@ -153,12 +156,7 @@
             document.getElementById("userExistsDisplay").innerHTML += "Great! Now log in with the account you just made."
             document.getElementById("userExistsDisplay").style.display = "block"
             document.getElementById("userExistsDisplay").className = "alert alert-success"
-
-
         }
 
     </script>
-
-
-
 </body>

@@ -36,28 +36,16 @@
 						<label for="exampleInputEmail1">Enter Current Location</label>
 						<div class="row">
 							<div class="col-4" style="margin-right: -5%; ">
-								<input id="instructionInput3" type="text" class="form-control"
-									name="target_room_wing" placeholder="Wing">
-							</div>
-
-							<div class="col" style="margin-right: -5%; ">
-								<input id="instructionInput4" type="text" class="form-control"
-									name="target_room_room_number" placeholder="Room Number">
-							</div>
-
-
-						</div>
-
-
-
-					</div>
-
-					<div class=" form-group">
-						<label>Enter Destination Room Number</label>
-						<div class="row">
-							<div class="col-4" style="margin-right: -5%; ">
-								<input id="instructionInput" type="text" class="form-control"
-									name="current_room_wing" placeholder="Wing">
+								<select id="instructionInput" class="custom-select mr-sm-2"
+									name="current_room_wing">
+									<option selected>Wing</option>
+									<option>ECAE</option>
+									<option>ECCE</option>
+									<option>ECCR</option>
+									<option>ECCS</option>
+									<option>ECEE</option>
+									<option>ECME</option>
+								</select>
 							</div>
 
 							<div class="col">
@@ -66,15 +54,42 @@
 							</div>
 
 						</div>
+					</div>
+
+					<div class=" form-group">
+						<label>Enter Destination Room Number</label>
+						<div class="row">
+							<div class="col-4" style="margin-right: -5%; ">
+								<select id="instructionInput3" class="custom-select mr-sm-2"
+									name="target_room_wing">
+									<option selected>Wing</option>
+									<option>ECAE</option>
+									<option>ECCE</option>
+									<option>ECCR</option>
+									<option>ECCS</option>
+									<option>ECEE</option>
+									<option>ECME</option>
+								</select>
+							</div>
+
+							<div class="col">
+								<input id="instructionInput4" type="text" class="form-control"
+									name="target_room_room_number" placeholder="Room Number">
+							</div>
+
+						</div>
 
 
 
-						<p id="formHelp" class="text-danger" style="padding-top: 10px;"></p>
 
 					</div>
+					<p id="formHelp" class="text-danger" style="padding-top: 10px;"></p>
+
 					<button class="btn btn-dark btn-block" type="Submit">Give me
 						instructions!</button>
 				</form>
+
+
 
 			</div>
 
@@ -91,6 +106,7 @@
 		}
 
 		var instructionsStatus = `<%- instructionStatus%>`
+		console.log(instructionsStatus)
 		if (instructionsStatus == "invalid") {
 			document.getElementById("instructionInput").classList.add(`form-control`)
 			document.getElementById("instructionInput").classList.add(`is-invalid`)

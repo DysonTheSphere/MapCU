@@ -158,7 +158,7 @@ app.post('/create_user', function (req, res) {
   })
 })
 
-app.post('/instructions', function (req, res) {
+app.post('/instructions', checkAuth, function (req, res) {
   var current_room_wing = req.body.current_room_wing
   var current_room_room_number = req.body.current_room_room_number
   var target_room_wing = req.body.target_room_wing
@@ -183,7 +183,7 @@ app.post('/instructions', function (req, res) {
     else {
       console.log("Empty Query")
       res.redirect("/home", {
-        instructionData: "Invalid"
+        // instructionData: "Invalid"
       })
 
     }

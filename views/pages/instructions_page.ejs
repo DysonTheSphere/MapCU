@@ -4,6 +4,11 @@
     <% include ../partials/head_content %>
     <title>Instructions Page</title>
 </head>
+<style>
+    body {
+        background-color: lightgrey;
+    }
+</style>
 
 <body>
     <% include ../partials/navigation_bar %>
@@ -20,25 +25,25 @@
                 <h1 style="font-size: 23pt; text-align: center;" class="display-4" id="instructions_display">
                     <!-- Append instructions here -->
                 </h1>
+                <br>
+                <form action="/home" method="GET">
+                    <button class="btn btn-dark btn-block" type="submit">Get new instruction</button>
+                </form>
 
             </div>
 
-            <div style="text-align: center" class="col">
-                <img style="text-align: center;" src="views/images/cu_logo.jpg">
-            </div>
-
-        </div>
-
-        <div class="fixed-bottom">
             <div class="col">
-                <p>Happy trails!</p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div style="text-align: center" class="col">
+                    <img style="text-align: center;" src="views/images/cu_logo.png">
+                </div>
             </div>
 
         </div>
-        <br>
-        <form action="/home" method="GET">
-            <button class="btn btn-dark btn-block" type="submit">Get new instruction</button>
-        </form>
+
 
     </div>
 
@@ -56,7 +61,7 @@
 
     document.getElementById("instructions_display").innerHTML += `
         In order to get from ${currentRoomWing.toUpperCase()} ${currentRoom} to ${targetRoomWing.toUpperCase()} ${targetRoom},
-    you must: <strong>${instructions} </strong>`
+    you must: ${instructions}`
 
     // console.log("Instructions: ", instructions)
     // console.log("Current Room: ", currentRoom)

@@ -26,7 +26,7 @@
 		<h1 id="user_display" class="display-3">Welcome to MapCU</h1>
 		<div class="row">
 			<div class="col">
-				<img src="views/images/engineering_center.png" height="375px" width="675px">
+				<img class="rounded" src="views/images/engineering_center.png" height="375px" width="675px">
 			</div>
 
 			<div class="col">
@@ -108,13 +108,11 @@
 		var instructionsStatus = `<%- instructionStatus%>`
 		console.log(instructionsStatus)
 		if (instructionsStatus == "invalid") {
-			document.getElementById("instructionInput").classList.add(`form-control`)
 			document.getElementById("instructionInput").classList.add(`is-invalid`)
-			document.getElementById("instructionInput2").classList.add(`form-control`)
+			document.getElementById("instructionInput").style.backgroundColor = "white"
 			document.getElementById("instructionInput2").classList.add(`is-invalid`)
-			document.getElementById("instructionInput3").classList.add(`form-control`)
 			document.getElementById("instructionInput3").classList.add(`is-invalid`)
-			document.getElementById("instructionInput4").classList.add(`form-control`)
+			document.getElementById("instructionInput3").style.backgroundColor = "white"
 			document.getElementById("instructionInput4").classList.add(`is-invalid`)
 
 			document.getElementById("formHelp").innerHTML += "One or both of these rooms do not exist, try a room closeby, or enter an existing room number"

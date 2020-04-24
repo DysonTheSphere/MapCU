@@ -24,6 +24,11 @@
         font-weight: 200;
         line-height: 80px;
     }
+
+    .center {
+        margin: auto;
+        width: 40%
+    }
 </style>
 
 
@@ -34,7 +39,7 @@
         }, 750, function () {
             $("#img_display").animate({
                 opacity: "100%"
-            }, 1500)
+            }, 750)
         })
     })
 
@@ -46,82 +51,85 @@
 
     <h1 id="user_display" class="header-styling display-3" style="text-align: center; opacity: 0%; margin-bottom: -1%;">
         Welcome to</h1>
-    <p style="text-align: center;"><img id="img_display" style="opacity: 0%;" src="views/images/mapculogo.png"
-            height="150" width="450">
+    <p style="text-align: center;">
+        <img id="img_display" style="opacity: 0%;" src="views/images/mapculogo.png" height="135px" width="450px">
     </p>
 
 
 
     <div class="container">
+        <form action="/login" class="center" method="POST">
+            <div style="text-align: center;" class=" form-group">
+                <label><b>Enter Username</b></label>
+                <input id="usernameInput" type="text" class="form-control" style="margin-bottom: -10px;"
+                    name="username">
+                <br>
+                <label for="exampleInputEmail1"><b>Enter Password</b></label>
+                <input id="passwordInput" type="password" class="form-control" name="password"
+                    style="margin-bottom: -10px">
+                <br>
+            </div>
 
-        <form class=" col-1 offset-md-3" action="/login" method="POST">
-            <div class="col-xs-3 col-centered">
-                <div style="width: 500px; text-align: center;" class=" form-group">
-                    <label>Enter Username</label>
-                    <input id="usernameInput" type="text" class="form-control" style="margin-bottom: -2%;"
-                        name="username">
-                    <br>
-                    <label for="exampleInputEmail1">Enter Password</label>
 
-                    <input id="passwordInput" type="password" class="form-control" name="password"
-                        style="margin-bottom: -2%;">
-                    <p id="formHelp" class="text-danger" style="padding-top:10px;"></p>
-                    <br>
+            <div class="form-group">
+                <button class="btn btn-dark btn-block" type="Submit">Login</button>
+            </div>
+            </label>
+
+            <div class="text-center">
+                <a style="margin-top: 5px;" href="#myModal" class="createUserBtn btn btn-outline-dark"
+                    data-toggle="modal" target="_top" onclick="openModal"><em>Not a user yet? Join
+                        here.</em></a>
+            </div>
+            <p id="formHelp" class="text-danger" style="padding-top:10px;"></p>
+
+    </div>
+    </form>
+
+
+    </div>
+
+
+
+
+    <br>
+    <div id="userExistsDisplay" style="display: none;" role="alert"> </div>
+
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-login modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Sign Up Page</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+
+
+            <div class="modal-body">
+                <form action="/create_user" method="POST">
+
+                    <!-- actual form -->
 
                     <div class="form-group">
-                        <button class="btn btn-dark btn-block" type="Submit">Login</button>
+
+                        <label>Username</label>
+                        <input id="username" type="text" class="form-control" name="username" placeholder="Username"
+                            required="required">
+
                     </div>
-                    </label>
 
-                    <div class="text-center">
-                        <a style="margin-top: 5px;" href="#myModal" class="createUserBtn btn btn-outline-dark"
-                            data-toggle="modal" target="_top" onclick="openModal"><em>Not a user yet? Join
-                                here.</em></a>
+                    <div class="form-group">
+
+                        <label>Password</label>
+                        <input id="password" type="password" class="form-control" name="password" placeholder="Password"
+                            required="required">
                     </div>
-                </div>
-            </div>
 
-        </form>
-
-
-        <br>
-        <div id="userExistsDisplay" style="display: none;" role="alert"> </div>
-
-        <div id="myModal" class="modal fade">
-            <div class="modal-dialog modal-login modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Sign Up Page</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                </div>
-
-
-                <div class="modal-body">
-                    <form action="/create_user" method="POST">
-
-                        <!-- actual form -->
-
-                        <div class="form-group">
-
-                            <label>Username</label>
-                            <input id="username" type="text" class="form-control" name="username" placeholder="Username"
-                                required="required">
-
-                        </div>
-
-                        <div class="form-group">
-
-                            <label>Password</label>
-                            <input id="password" type="password" class="form-control" name="password"
-                                placeholder="Password" required="required">
-                        </div>
-
-                        <div class="form-group">
-                            <button id="my_submit_button" class="btn btn-dark" type="submit">Sign Up</button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <button id="my_submit_button" class="btn btn-dark" type="submit">Sign Up</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
 
     </div>
 

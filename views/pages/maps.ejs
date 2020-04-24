@@ -10,26 +10,87 @@
       body {
             background-color: lightgrey;
       }
+
+      .image {
+            padding: 10px
+      }
+
+      .image:active {
+            width: 500px;
+            height: 500px;
+      }
 </style>
 
-<% include ../partials/navigation_bar %>
+<body>
+      <% include ../partials/navigation_bar %>
 
-<div class="container">
-      <h2 style="text-align: center;">Wings of First Floor</h2>
+      <div class="container">
+            <br>
 
-      <div class="row">
-            <div class="col">
-                  <img src="views/images/ECAE.jpg" alt="ECAE map" width="300" height="300">
-                  <img src="views/images/ECCE.jpg" alt="ECCE map" width="300" height="300">
-            </div>
-            <div class="col">
-                  <img src="views/images/ECCR.jpg" alt="ECCR map" width="300" height="300">
-                  <img src="views/images/ECCS.png" alt="ECCS map" width="300" height="300">
-            </div>
-            <div class="col">
-                  <img src="views/images/ECEE.png" alt="ECEE map" width="300" height="300">
-                  <img src="views/images/ECME.png" alt="ECME map" width="300" height="300">
-            </div>
+            <div class="row">
+                  <div class="col">
+                        <button class="btn btn-outline-dark" onclick="imageOnClick(`ECAE`)">ECAE Map</button>
+                  </div>
 
+                  <div class=" col">
+                        <button class="btn btn-outline-dark" onclick="imageOnClick(`ECCE`)">ECCE Map</button>
+                  </div>
+
+                  <div class="col">
+                        <button class="btn btn-outline-dark" onclick="imageOnClick(`ECCR`)">ECCR Map</button>
+                  </div>
+
+                  <div class="col">
+                        <button class="btn btn-outline-dark" onclick="imageOnClick(`ECCS`)">ECCS Map</button>
+                  </div>
+
+                  <div class="col">
+                        <button class="btn btn-outline-dark" onclick="imageOnClick(`ECEE`)">ECEE Map</button>
+                  </div>
+
+                  <div class="col">
+                        <button class="btn btn-outline-dark" onclick="imageOnClick(`ECME`)">ECME Map</button>
+                  </div>
+
+            </div>
+            <p style="text-align: center; margin-top:20px">
+                  <img style="display: none;" id="img" src="" width=500px height=300px>
+            </p>
       </div>
-</div>
+      <!-- <div class=" container">
+                  <h2 style="text-align: center;">Wings of First Floor</h2>
+
+                  <div class="row">
+                        <div class="col">
+                              <img class="image" src="views/images/ECAE.jpg" alt="ECAE map" width="250px"
+                                    height="250px">
+                              <img class="image" src="views/images/ECCE.jpg" alt="ECCE map" width="250px"
+                                    height="250px">
+                        </div>
+                        <div class="col">
+                              <img class="image" src="views/images/ECCR.jpg" alt="ECCR map" width="250px"
+                                    height="250px">
+                              <img class="image" src="views/images/ECCS.png" alt="ECCS map" width="250px"
+                                    height="250px">
+                        </div>
+                        <div class="col">
+                              <img class="image" src="views/images/ECEE.png" alt="ECEE map" width="250px"
+                                    height="250px">
+                              <img class="image" src="views/images/ECME.png" alt="ECME map" width="250px"
+                                    height="250px">
+                        </div>
+
+                  </div>
+      </div> -->
+</body>
+
+<script>
+      function imageOnClick(imageName) {
+            document.getElementById("img").style.display = "inline"
+            document.getElementById("img").setAttribute("src", `views/images/${imageName}.jpg`)
+            document.getElementById("img").style.borderRadius = "50px"
+
+
+      }
+
+</script>

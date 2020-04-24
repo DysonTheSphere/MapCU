@@ -81,7 +81,7 @@
                     data-toggle="modal" target="_top" onclick="openModal"><em>Not a user yet? Join
                         here.</em></a>
             </div>
-            <p id="formHelp" class="text-danger" style="padding-top:10px;"></p>
+            <p id="formHelp" class="text-danger" style="text-align: center; padding-top:10px;"></p>
 
     </div>
     </form>
@@ -98,7 +98,7 @@
     <div id="myModal" class="modal fade">
         <div class="modal-dialog modal-login modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Sign Up Page</h4>
+                <h4 class="modal-title" style="text-align: center;">Sign Up Page</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
 
@@ -145,7 +145,7 @@
             document.getElementById("usernameInput").classList.add(`is-invalid`)
             document.getElementById("passwordInput").classList.add(`form-control`)
             document.getElementById("passwordInput").classList.add(`is-invalid`)
-            document.getElementById("formHelp").innerHTML += "Invalid login"
+            document.getElementById("formHelp").innerHTML += "Invalid login! Username or password are incorrect."
         }
 
         var userExists = (`<%- typeof(userExists) !== 'undefined' ? userExists : 'NA' %>`)

@@ -6,7 +6,7 @@ create table if not exists Instructions (
 
 create table if not exists Rooms(
 	RoomNumber integer,
-	RoomSubect varchar(4),
+	RoomSubject varchar(4),
 	RoomSection integer
 
 );

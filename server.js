@@ -171,7 +171,7 @@ app.post('/instructions', checkAuth, function (req, res) {
   db.any(query).then(function (data) {
     if (data.length > 0) {
       console.log(data)
-      res.render("  pages/instructions_page", {
+      res.render("pages/instructions_page", {
         instructionData: data,
         currentRoom: current_room_room_number,
         currentRoomWing: current_room_wing,

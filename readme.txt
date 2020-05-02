@@ -1,20 +1,20 @@
-Infrastructure setup:
--Server Side Rendering
----server.js file (NodeJS server with Express on top, like in NodeJS Lab 8) will contain routes to optain our data from our data base, and will render HTML pages with data injections in ejs files
+MapCU is a web-application that will help CU Boulder students navigate the engineering center. It provides users 
+written instructions how to get from one room to another room, and also provides visuals of the areas that
+there are instructions for. For future development, the project is intended to have more precise navigation, 
+expansion to all buildings on the CU campus, as well as being a hub for all building related information, such 
+as events and school activities and clubs.
 
-dependencies: 
--postgres
--node
--express
+The repository includes all code and data for the project, however to run the application locally, there are 
+a few dependencies and environments that need to be setup. This includes all packages listed in the package.json
+file, which would be done through an "npm install" command. Postgres would also need to be set up, filled
+with the database that's created with the MapCU_database.sql file, and listening on the correct port. To
+start the server, the command "node server.js" is needed to be run. 
 
+Instead, the best way to run the application would be going to where it's deployed: 
+https://mapcu.herokuapp.com/
 
-environments:
--postgres, with our database (IMPORTANT: ensure that in server js file under the dbConfig, the username and password match the ones you have your postgres setup with, or you can change your own to mapCU2020, whichever you deem easier)
+Accessing the link will give access to their entire app. New users will need to create a new account, but once
+it's created, that user will be able to use that account to login in the future. 
 
--node and express should be installed from previous labs, if not, should be able to
-through websites and npm install command
-
-Go to browser, and go to 
-"127.0.0.1:3000/home"
-or 
-"localhost:3000/home"
+Our app is a NodeJS program with EJS templating to render the full pages on the browser. It is hosted on 
+Heroku, with an addition of Postgres plugin to have the database be in Heroku's services as well. 

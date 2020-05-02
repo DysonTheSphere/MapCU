@@ -1,23 +1,35 @@
 --creating both tables
-create table if not exists Instructions (
+create table
+if not exists Instructions
+(
 	InstructionCombinations integer[2],
-	WrittenInstructions varchar(100000)
+	WrittenInstructions varchar
+(100000)
 );
 
-create table if not exists Rooms(
+create table
+if not exists Rooms
+(
 	RoomNumber integer,
-	RoomSubject varchar(4),
+	RoomSubject varchar
+(4),
 	RoomSection integer
 
 );
 
-create table if not exists Users(
-	username varchar(20) PRIMARY KEY,
-	password varchar(20)
+create table
+if not exists Users
+(
+	username varchar
+(20) PRIMARY KEY,
+	password varchar
+(20)
 );
 
 
-insert into Instructions values(ARRAY[1, 2], 'Exit the ECCR section, and walk straight for 3 meters, past the lobby, and take a right'),
+insert into Instructions
+values(ARRAY
+[1, 2], 'Exit the ECCR section, and walk straight for 3 meters, past the lobby, and take a right'),
 (ARRAY[1,3], 'Exit the ECCR section, walk straight for approximatley 3 meters, and take a right to enter the ECCE section, then walk straight for approximatley 1 meter to arrive at your destination'),
 (ARRAY[1,5], 'Exit the ECCR section, and continue past the elevator until you have reached the ECAE section. Then, take an immediate left to get to your location'),
 (ARRAY[1,6], 'Exit the ECCR section, and continue past the elevator until you have reached the ECAE section. Then, take an immediate right to get to your location'),
@@ -108,31 +120,236 @@ insert into Instructions values(ARRAY[1, 2], 'Exit the ECCR section, and walk st
 (ARRAY[10,8], 'Exit the ECME section, then take a walk past the help desk and main lobby then take an immediate left, approximatley half way into the hall way, then once in the ECEE section, continue straight'),
 (ARRAY[10,9], 'Exit the ECME section and continue to walk straight past the elevators and the main entrance doors to arrive at your destination as you continue to walk past the ECCR section');
 
-	insert into Rooms values (131, 'ECCR', 1), (133, 'ECCR', 1), (137, 'ECCR', 1), (139, 'ECCR', 1), (105, 'ECCR', 1), (108, 'ECCR', 1), (110, 'ECCR', 1);
-	insert into Rooms values (116, 'ECCR', 1), (118, 'ECCR', 1), (150, 'ECCR', 1), (167, 'ECCE', 2), (161, 'ECCE', 2), (157, 'ECCE', 2), (168, 'ECCE', 2);
-	insert into Rooms values (162, 'ECCE', 2), (160, 'ECCE', 2), (159, 'ECCE', 2), (156, 'ECCE', 2), (152, 'ECCE', 2), (153, 'ECCE', 2), (150, 'ECCE', 2);
-	insert into Rooms values (119, 'ECCE', 3), (118, 'ECCE', 3), (117, 'ECCE', 3), (116, 'ECCE', 3), (144, 'ECCE', 3), (113, 'ECCE', 3);
-	insert into Rooms values (114, 'ECCE', 3), (112, 'ECCE', 3), (107, 'ECCE', 3), (109, 'ECCE', 3), (100, 'ECCE', 3), (102, 'ECCE', 4), (104, 'ECCE', 4);
-	insert into Rooms values (106, 'ECCE', 4), (108, 'ECCE', 4), (110, 'ECCE', 4), (120, 'ECCE', 4), (122, 'ECCE', 4), (124, 'ECCE', 4), (126, 'ECCE', 4);
-	insert into Rooms values (166, 'ECAE', 5), (171, 'ECAE', 5), (133, 'ECAE', 5), (135, 'ECAE', 5), (137, 'ECAE', 5), (139, 'ECAE', 5), (132, 'ECAE', 5);
-	insert into Rooms values (136, 'ECAE', 5), (138, 'ECAE', 5), (175, 'ECAE', 5), (177, 'ECAE', 5), (179, 'ECAE', 5), (181, 'ECAE', 5), (183, 'ECAE', 5);
-	insert into Rooms values (185, 'ECAE', 5), (187, 'ECAE', 5), (189, 'ECAE', 5), (172, 'ECAE', 5), (188, 'ECAE', 5), (140, 'ECAE', 5);
-	insert into Rooms values (142, 'ECAE', 5), (190, 'ECAE', 5), (191, 'ECAE', 5), (193, 'ECAE', 5), (194, 'ECAE', 5), (195, 'ECAE', 5), (196, 'ECAE', 5);
-	insert into Rooms values (197, 'ECAE', 5), (199, 'ECAE', 5), (198, 'ECAE', 5), (152, 'ECAE', 6), (164, 'ECAE', 6), (125, 'ECAE', 6);
-	insert into Rooms values (127, 'ECAE', 6), (129, 'ECAE', 6), (131, 'ECAE', 6), (126, 'ECAE', 6), (128, 'ECAE', 6), (130, 'ECAE', 6), (161, 'ECAE', 6);
-	insert into Rooms values (159, 'ECAE', 6), (157, 'ECAE', 6), (155, 'ECAE', 6), (153, 'ECAE', 6), (117, 'ECAE', 6), (115, 'ECAE', 6), (113, 'ECAE', 6);
-	insert into Rooms values (111, 'ECAE', 6), (109, 'ECAE', 6), (107, 'ECAE', 6), (105, 'ECAE', 6), (103, 'ECAE', 6), (101, 'ECAE', 6), (100, 'ECAE', 6);
-	insert into Rooms values (151, 'ECAE', 6), (116, 'ECAE', 6), (118, 'ECAE', 6), (104, 'ECAE', 6), (121, 'ECAE', 6), (102, 'ECAE', 6), (119, 'ECAE', 6);
-	insert into Rooms values (164, 'ECEE', 7), (166, 'ECEE', 7), (168, 'ECEE', 7), (123, 'ECEE', 7), (127, 'ECEE', 7), (129, 'ECEE', 7), (124, 'ECEE', 7);
-	insert into Rooms values (125, 'ECEE', 7), (126, 'ECEE', 7), (128, 'ECEE', 7), (132, 'ECEE', 7), (137, 'ECEE', 7), (130, 'ECEE', 7), (140, 'ECEE', 7);
-	insert into Rooms values (142, 'ECEE', 7), (146, 'ECEE', 7), (186, 'ECEE', 7), (189, 'ECEE', 7), (187, 'ECEE', 7), (185, 'ECEE', 7), (190, 'ECEE', 7);
-	insert into Rooms values (170, 'ECEE', 7), (165, 'ECEE', 7), (162, 'ECEE', 8), (160, 'ECEE', 8), (158, 'ECEE', 8), (121, 'ECEE', 8), (117, 'ECEE', 8);
-	insert into Rooms values (115, 'ECEE', 8), (121, 'ECEE', 8), (114, 'ECEE', 8), (116, 'ECEE', 8), (120, 'ECEE', 8), (161, 'ECEE', 8), (155, 'ECEE', 8);
-	insert into Rooms values (151, 'ECEE', 8), (150, 'ECEE', 8), (109, 'ECEE', 8), (105, 'ECEE', 8), (110, 'ECEE', 8), (121, 'ECCS', 9), (112, 'ECCS', 9);
-	insert into Rooms values (122, 'ECCS', 9), (111, 'ECCS', 9), (128, 'ECCS', 9), (127, 'ECCS', 9), (123, 'ECCS', 9), (102, 'ECCS', 9), (101, 'ECCS', 9);
-	insert into Rooms values (112, 'ECME', 10), (114, 'ECME',10),(120, 'ECME',10), (122, 'ECME', 10), (124, 'ECME', 10), (126, 'ECME', 10), (128, 'ECME', 10);
-	insert into Rooms values (130, 'ECME', 10), (132, 'ECME',10),(134, 'ECME',10), (136, 'ECME', 10), (137, 'ECME', 10), (133, 'ECME', 10), (145, 'ECME', 10);
-	insert into Rooms values (147, 'ECME', 10), (149, 'ECME',10),(157, 'ECME',10), (159, 'ECME', 10), (165, 'ECME', 10), (175, 'ECME', 10), (155, 'ECME', 10);
-	insert into Rooms values (108, 'ECME', 10), (109, 'ECME',10), (107, 'ECME',10), (105, 'ECME', 10), (102, 'ECME', 10);
+insert into Rooms
+values
+	(131, 'ECCR', 1),
+	(133, 'ECCR', 1),
+	(137, 'ECCR', 1),
+	(139, 'ECCR', 1),
+	(105, 'ECCR', 1),
+	(108, 'ECCR', 1),
+	(110, 'ECCR', 1);
+insert into Rooms
+values
+	(116, 'ECCR', 1),
+	(118, 'ECCR', 1),
+	(150, 'ECCR', 1),
+	(167, 'ECCE', 2),
+	(161, 'ECCE', 2),
+	(157, 'ECCE', 2),
+	(168, 'ECCE', 2);
+insert into Rooms
+values
+	(162, 'ECCE', 2),
+	(160, 'ECCE', 2),
+	(159, 'ECCE', 2),
+	(156, 'ECCE', 2),
+	(152, 'ECCE', 2),
+	(153, 'ECCE', 2),
+	(150, 'ECCE', 2);
+insert into Rooms
+values
+	(119, 'ECCE', 3),
+	(118, 'ECCE', 3),
+	(117, 'ECCE', 3),
+	(116, 'ECCE', 3),
+	(144, 'ECCE', 3),
+	(113, 'ECCE', 3);
+insert into Rooms
+values
+	(114, 'ECCE', 3),
+	(112, 'ECCE', 3),
+	(107, 'ECCE', 3),
+	(109, 'ECCE', 3),
+	(100, 'ECCE', 3),
+	(102, 'ECCE', 4),
+	(104, 'ECCE', 4);
+insert into Rooms
+values
+	(106, 'ECCE', 4),
+	(108, 'ECCE', 4),
+	(110, 'ECCE', 4),
+	(120, 'ECCE', 4),
+	(122, 'ECCE', 4),
+	(124, 'ECCE', 4),
+	(126, 'ECCE', 4);
+insert into Rooms
+values
+	(166, 'ECAE', 5),
+	(171, 'ECAE', 5),
+	(133, 'ECAE', 5),
+	(135, 'ECAE', 5),
+	(137, 'ECAE', 5),
+	(139, 'ECAE', 5),
+	(132, 'ECAE', 5);
+insert into Rooms
+values
+	(136, 'ECAE', 5),
+	(138, 'ECAE', 5),
+	(175, 'ECAE', 5),
+	(177, 'ECAE', 5),
+	(179, 'ECAE', 5),
+	(181, 'ECAE', 5),
+	(183, 'ECAE', 5);
+insert into Rooms
+values
+	(185, 'ECAE', 5),
+	(187, 'ECAE', 5),
+	(189, 'ECAE', 5),
+	(172, 'ECAE', 5),
+	(188, 'ECAE', 5),
+	(140, 'ECAE', 5);
+insert into Rooms
+values
+	(142, 'ECAE', 5),
+	(190, 'ECAE', 5),
+	(191, 'ECAE', 5),
+	(193, 'ECAE', 5),
+	(194, 'ECAE', 5),
+	(195, 'ECAE', 5),
+	(196, 'ECAE', 5);
+insert into Rooms
+values
+	(197, 'ECAE', 5),
+	(199, 'ECAE', 5),
+	(198, 'ECAE', 5),
+	(152, 'ECAE', 6),
+	(164, 'ECAE', 6),
+	(125, 'ECAE', 6);
+insert into Rooms
+values
+	(127, 'ECAE', 6),
+	(129, 'ECAE', 6),
+	(131, 'ECAE', 6),
+	(126, 'ECAE', 6),
+	(128, 'ECAE', 6),
+	(130, 'ECAE', 6),
+	(161, 'ECAE', 6);
+insert into Rooms
+values
+	(159, 'ECAE', 6),
+	(157, 'ECAE', 6),
+	(155, 'ECAE', 6),
+	(153, 'ECAE', 6),
+	(117, 'ECAE', 6),
+	(115, 'ECAE', 6),
+	(113, 'ECAE', 6);
+insert into Rooms
+values
+	(111, 'ECAE', 6),
+	(109, 'ECAE', 6),
+	(107, 'ECAE', 6),
+	(105, 'ECAE', 6),
+	(103, 'ECAE', 6),
+	(101, 'ECAE', 6),
+	(100, 'ECAE', 6);
+insert into Rooms
+values
+	(151, 'ECAE', 6),
+	(116, 'ECAE', 6),
+	(118, 'ECAE', 6),
+	(104, 'ECAE', 6),
+	(121, 'ECAE', 6),
+	(102, 'ECAE', 6),
+	(119, 'ECAE', 6);
+insert into Rooms
+values
+	(164, 'ECEE', 7),
+	(166, 'ECEE', 7),
+	(168, 'ECEE', 7),
+	(123, 'ECEE', 7),
+	(127, 'ECEE', 7),
+	(129, 'ECEE', 7),
+	(124, 'ECEE', 7);
+insert into Rooms
+values
+	(125, 'ECEE', 7),
+	(126, 'ECEE', 7),
+	(128, 'ECEE', 7),
+	(132, 'ECEE', 7),
+	(137, 'ECEE', 7),
+	(130, 'ECEE', 7),
+	(140, 'ECEE', 7);
+insert into Rooms
+values
+	(142, 'ECEE', 7),
+	(146, 'ECEE', 7),
+	(186, 'ECEE', 7),
+	(189, 'ECEE', 7),
+	(187, 'ECEE', 7),
+	(185, 'ECEE', 7),
+	(190, 'ECEE', 7);
+insert into Rooms
+values
+	(170, 'ECEE', 7),
+	(165, 'ECEE', 7),
+	(162, 'ECEE', 8),
+	(160, 'ECEE', 8),
+	(158, 'ECEE', 8),
+	(121, 'ECEE', 8),
+	(117, 'ECEE', 8);
+insert into Rooms
+values
+	(115, 'ECEE', 8),
+	(121, 'ECEE', 8),
+	(114, 'ECEE', 8),
+	(116, 'ECEE', 8),
+	(120, 'ECEE', 8),
+	(161, 'ECEE', 8),
+	(155, 'ECEE', 8);
+insert into Rooms
+values
+	(151, 'ECEE', 8),
+	(150, 'ECEE', 8),
+	(109, 'ECEE', 8),
+	(105, 'ECEE', 8),
+	(110, 'ECEE', 8),
+	(121, 'ECCS', 9),
+	(112, 'ECCS', 9);
+insert into Rooms
+values
+	(122, 'ECCS', 9),
+	(111, 'ECCS', 9),
+	(128, 'ECCS', 9),
+	(127, 'ECCS', 9),
+	(123, 'ECCS', 9),
+	(102, 'ECCS', 9),
+	(101, 'ECCS', 9);
+insert into Rooms
+values
+	(112, 'ECME', 10),
+	(114, 'ECME', 10),
+	(120, 'ECME', 10),
+	(122, 'ECME', 10),
+	(124, 'ECME', 10),
+	(126, 'ECME', 10),
+	(128, 'ECME', 10);
+insert into Rooms
+values
+	(130, 'ECME', 10),
+	(132, 'ECME', 10),
+	(134, 'ECME', 10),
+	(136, 'ECME', 10),
+	(137, 'ECME', 10),
+	(133, 'ECME', 10),
+	(145, 'ECME', 10);
+insert into Rooms
+values
+	(147, 'ECME', 10),
+	(149, 'ECME', 10),
+	(157, 'ECME', 10),
+	(159, 'ECME', 10),
+	(165, 'ECME', 10),
+	(175, 'ECME', 10),
+	(155, 'ECME', 10);
+insert into Rooms
+values
+	(108, 'ECME', 10),
+	(109, 'ECME', 10),
+	(107, 'ECME', 10),
+	(105, 'ECME', 10),
+	(102, 'ECME', 10);
 
-insert into Users values ('gtzinov', 'MapCU2020');
+insert into Users
+values
+	('gtzinov', 'MapCU2020');

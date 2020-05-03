@@ -118,7 +118,17 @@ values(ARRAY
 (ARRAY[10,6], 'Exit the ECME section from the North exit (exit which is facing away from the elevators and main building entrance), then, take a left to arrive at your destination'),
 (ARRAY[10,7], 'Exit the ECME section, then take a walk past the help desk and main lobby then take an immediate left, approximatley half way into the hall way'),
 (ARRAY[10,8], 'Exit the ECME section, then take a walk past the help desk and main lobby then take an immediate left, approximatley half way into the hall way, then once in the ECEE section, continue straight'),
-(ARRAY[10,9], 'Exit the ECME section and continue to walk straight past the elevators and the main entrance doors to arrive at your destination as you continue to walk past the ECCR section');
+(ARRAY[10,9], 'Exit the ECME section and continue to walk straight past the elevators and the main entrance doors to arrive at your destination as you continue to walk past the ECCR section'),
+(ARRAY[1,1], 'Stay in ECCR section, your room should be right by you.'),
+(ARRAY[2,2], 'Stay in ECCE section, your room should be right by you.'),
+(ARRAY[3,3], 'Stay in ECCE section, your room should be right by you.'),
+(ARRAY[4,4], 'Stay in ECCE section, your room should be right by you.'),
+(ARRAY[5,5], 'Stay in ECAE section, your room should be right by you.'),
+(ARRAY[6,6], 'Stay in ECAE section, your room should be right by you.'),
+(ARRAY[7,7], 'Stay in ECEE section, your room should be right by you.'),
+(ARRAY[8,8], 'Stay in ECEE section, your room should be right by you.'),
+(ARRAY[9,9], 'Stay in ECCS section, your room should be right by you.'),
+(ARRAY[10,10], 'Stay in ECME section, your room should be right by you.');
 
 insert into Rooms
 values

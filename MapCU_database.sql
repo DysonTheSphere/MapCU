@@ -96,9 +96,9 @@ values(ARRAY
 (ARRAY[8,2], 'Exit the ECEE section, then simply walk straight until you have reached the ECCE section'),
 (ARRAY[8,3], 'Exit the ECEE section, then simply walk straight until you have reached the ECCE section, then continue to walk straight to reach your destination'),
 (ARRAY[8,4], 'Exit the ECEE section, then simply walk straight until you have reached the ECCE section, then continue to walk straight, then take a left to arrive at your destination'),
-(ARRAY[8,5], 'Exit the ECCE section, then take a left to go to the elevators, then take a right and walk straight until you have reached the ECAE section, then once inside this section, take a left'),
+(ARRAY[8,5], 'Exit the ECCE section, then take a left to go to the elevators, then take a right and walk straight until you have reached the ECAE section, then once inside this section, take a left to arrive at your destination'),
 (ARRAY[8,6], 'Exit the ECCE section, then take a left to go to the elevators, then take a right and walk straight until you have reached the ECAE section, then once inside this section, take a right to arrive at your destination'),
-(ARRAY[8,7], 'Continue walking straight within the ECEE section while viewing right'),
+(ARRAY[8,7], 'Continue walking straight within the ECEE section while looking to the right'),
 (ARRAY[8,9], 'Exit the ECEE section, then take a left and walk past the main lobby and once you have arrived at the ECCR section, take an immediate left, then continue to walk straight within the ECCR section until you have arrived at your destination'),
 (ARRAY[8,10], 'Exit the ECEE section, take a right and walk past the lobby, take another right to walk past the elavtors then take a left to enter the ECME section'),
 (ARRAY[9,1], 'Simply walk past the ECCS section to enter the ECCR section'),
@@ -352,4 +352,8 @@ values
 
 insert into Users
 values
-	('gtzinov', 'MapCU2020');
+	('gtzinov', 'MapCU2020'),
+	('ryanjones','MapCU2020'),
+	('phalgun','MapCU2020'),
+	('danielW','MapCU2020'),
+	('chanceM','MapCU2020');

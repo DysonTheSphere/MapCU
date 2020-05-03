@@ -1,0 +1,35 @@
+Since the functionality of MapCU is limited to only a couple of different pages and operations, we opted
+for manual testing currently. We conducted tests for:
+
+Log in:
+1. Starting from the log in page, we ensured that the user could create an account and log in with it. 
+(sometimes this takes a long time to perform. The user is created in the Heroku Database, but the response
+is heavily delayed and sometimes times out. When doing this operation another time, this delay 
+is not present. Most likely Heroku temporaring storing away some resources when the routes aren't accessed for 
+a long time)
+---if the user is creating an account that already exists, the user is informed
+
+2. If the user tries to login with an account that doesn't exist, they are not granted access and are informed
+of incorrect credentials
+
+3. If the user tries to hit another page before logging in, they are redirected to the login page
+
+4. The user is not allowed to create a user with an empty username or password field. 
+
+Home page: 
+1. All buttons have the correct action, whether its switching pages, submitting form, or logging out, in which
+the logout will bring the user back to the beginning and make he/she log in again
+
+2. If user attempts to input invalid rooms or information, they are informed saying that those inputs don't exist
+
+3. If user inputs valid rooms, they are correctly brought to the instructions page, where the instruction is listed
+(works for rooms that are far apart, or rooms that are right next to each other
+
+Maps page:
+1. Clicking on any of the buttons to display a map will render the map of that wing underneath. 
+
+2. Clicking on MapCU logo at the top will bring the user back home, and logout button still logs them out.
+
+
+General:
+1. Submitting empty form does not crash anything, instead the user is informed that they should input in something else

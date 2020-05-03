@@ -210,4 +210,6 @@ var port = process.env.PORT;
 app.listen(port)
 console.log("Server running on port: " + port)
 
+//accessing postgres database on heroku:
+//heroku pg:psql postgresql-animated-86578 --app mapcu
 

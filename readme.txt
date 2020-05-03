@@ -8,7 +8,7 @@ The repository includes all code and data for the project, however to run the ap
 a few dependencies and environments that need to be setup. This includes all packages listed in the package.json
 file, which would be done through an "npm install" command. Postgres would also need to be set up, filled
 with the database that's created with the MapCU_database.sql file, and listening on the correct port. To
-start the server, the command "node server.js" is needed to be run. 
+start the server, the command "node server.js" is needed to be run, and then opening up a broswer to localhost:3000
 
 Instead, the best way to run the application would be going to where it's deployed: 
 https://mapcu.herokuapp.com/

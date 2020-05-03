@@ -78,7 +78,7 @@ values(ARRAY
 (ARRAY[6,2], 'Exit the ECAE section then, continue straight until you have arrived at the elevators, after that, take a left and continue straight until you have reached the ECCE section then, take a left to arrive at your destination'),
 (ARRAY[6,3], 'Exit the ECAE section then, continue straight until you have arrived at the elevators, after that, take a left and continue straight until you have reached the ECCE section then, take a left to arrive at your destination, finally, continue straight for 1 meter'),
 (ARRAY[6,4], 'Exit the ECAE section then, continue straight until you have arrived at the elevators, after that, take a left and continue straight until you have reached the ECCE section then, take a left to arrive at your destination, afterwards, continue straight for 1 meter, then take a left to arrive at your destination'),
-(ARRAY[6,5], 'View right and continue straight to arrive at your destination');
+(ARRAY[6,5], 'View right and continue straight to arrive at your destination'),
 (ARRAY[6,7], 'Exit the ECAE, then, continue walking straight towards the elevators, and take a right to enter into the lobby, next, walk for about 1 meter and take a left into the ECEE section'),
 (ARRAY[6,8], 'Exit the ECAE, then, continue walking straight towards the elevators, and take a right to enter into the lobby, next, walk for about 1 meter and take a left into the ECEE section, then continue walking straight within the ECEE section to arrive at your destination'),
 (ARRAY[6,9], 'Exit the ECAE  then, and simply walk straight into the ECCR section then continue straight to enter the ECCS section'),

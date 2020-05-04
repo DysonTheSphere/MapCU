@@ -184,7 +184,7 @@ app.post('/instructions', checkAuth, function (req, res) {
 
     else {
       console.log("Empty Query")
-      res.redirect("/home")
+      res.redirect("/home?instructions=invalid")
 
     }
   })

@@ -17,15 +17,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //database 
-const dbConfig = {
-  host: 'localhost',
-  port: 5432,
-  database: 'postgres',
-  user: 'postgres',
-  password: 'mapCU2020'
-};
+// const dbConfig = {
+//   host: 'localhost',
+//   port: 5432,
+//   database: 'postgres',
+//   user: 'postgres',
+//   password: 'mapCU2020'
+// };
 
-// const dbConfig = process.env.DATABASE_URL;
+const dbConfig = process.env.DATABASE_URL;
 
 var db = pgp(dbConfig);
 
@@ -206,8 +206,8 @@ app.get('/maps', checkAuth, function (req, res) {
   res.render("pages/maps")
 })
 
-// var port = process.env.PORT;
-var port = 3000
+var port = process.env.PORT;
+// var port = 3000
 app.listen(port)
 console.log("Server running on port: " + port)
 

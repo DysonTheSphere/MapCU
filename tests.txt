@@ -1,5 +1,6 @@
 Since the functionality of MapCU is limited to only a couple of different pages and operations, we opted
-for manual testing currently. We conducted tests for:
+for manual testing currently. However, if the project becomes bigger, automated testing would be set
+up. For now, we conducted tests for:
 
 Log in:
 1. Starting from the log in page, we ensured that the user could create an account and log in with it. 
